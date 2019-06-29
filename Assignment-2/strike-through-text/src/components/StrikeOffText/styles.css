@@ -1,0 +1,8 @@
+.text-content {
+    text-decoration: line-through;
+}
+
+.text-division {
+    display:flex;
+    justify-content: center;
+}

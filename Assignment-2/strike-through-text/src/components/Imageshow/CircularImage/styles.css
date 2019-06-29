@@ -1,0 +1,6 @@
+.circular-image{
+    height:300px;
+    width :300px;
+    border-radius: 150px;
+    background-color: azure;
+}

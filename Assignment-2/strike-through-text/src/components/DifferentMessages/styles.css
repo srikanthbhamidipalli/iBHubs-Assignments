@@ -1,0 +1,47 @@
+.success-msg {
+    color:green;
+    height: 40px;
+    background-color: lightseagreen;
+    padding-top:20px;
+    font-size:25px;
+    text-align: center;
+    width:500px;
+}
+
+.info-msg {
+    color:blue;
+    height: 40px;
+    background-color: lightblue;
+    padding-top:20px;
+    font-size:25px;
+    width:500px;
+    text-align: center;
+}
+
+.warning-msg {
+    color:yellow;
+    height: 40px;
+    background-color: lightyellow;
+    padding-top: 20px;
+    font-size:25px;
+    width:500px;
+    text-align: center;
+}
+
+.error-msg {
+    color:red;
+    height: 40px;
+    background-color: rgba(247, 132, 103, 0.938);
+    padding-top:20px;
+    font-size:25px;
+    width:500px;
+    text-align: center;
+}
+
+.msgs-list{
+    height:300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;  
+}

@@ -1,0 +1,32 @@
+ul {
+    list-style: none;
+    margin: 0 0 20px;
+    padding: 0;
+}
+
+.user-flavour {
+    text-transform: uppercase;
+}
+
+ul {
+    list-style: none;
+    margin: 0 0 20px;
+    padding: 0;
+}
+  
+li:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.dessert-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+label {
+    display: flex;
+    align-items: center;
+}
+
