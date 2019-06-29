@@ -1,0 +1,273 @@
+.welcome-note{
+    background-color: #1b4a98;
+    height: 56px;
+
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+}
+.iB-cricket-now-as {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: -0.2px;
+    text-align: center;
+    color: #ffffff;
+    
+  }
+
+  .close-pic{
+    position:absolute;
+    right:30px;
+  }
+
+  .bg-image{
+      height:100vh;
+      background-repeat:no-repeat;
+    background-size:cover;
+
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+  }
+  .iBC_Logo {
+    
+    object-fit: contain;
+  }
+  
+
+  .Know-More {
+    
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: -0.2px;
+    text-align: center;
+    color: #ffffff;
+    margin-left: 6.5px;
+  }
+
+  .Worlds-Most{
+    margin-top:24px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: bold;
+    font-style: italic;
+    font-stretch: normal;
+    line-height: 1.38;
+    letter-spacing: -0.5px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .footer {
+    background-color: #1b4a98;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    
+  }
+
+  .play-in {
+    width: 45px;
+    height: 20px;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: italic;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: -0.3px;
+    text-align: center;
+    color: #ffffff;
+  }
+  .inter-stadium {
+    width: 220px;
+    height: 25px;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+    font-stretch: normal;
+    line-height: 1.39;
+    letter-spacing: -0.3px;
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+  .build-your{
+    
+        width: 64px;
+        height: 20px;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: normal;
+        font-style: italic;
+        font-stretch: normal;
+        line-height: 1.33;
+        letter-spacing: -0.3px;
+        text-align: center;
+        color: #ffffff;
+      
+  }
+
+  .best-team {
+    width: 92px;
+    height: 25px;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+    font-stretch: normal;
+    line-height: 1.39;
+    letter-spacing: -0.3px;
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+
+  .first-sec{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+  }
+  .compete-in{
+    
+        width: 76px;
+        height: 20px;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: normal;
+        font-style: italic;
+        font-stretch: normal;
+        line-height: 1.33;
+        letter-spacing: -0.3px;
+        text-align: center;
+        color: #ffffff;
+      
+  }
+  .global{
+    width: 194px;
+    height: 25px;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+    font-stretch: normal;
+    line-height: 1.39;
+    letter-spacing: -0.3px;
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+  .become-a {
+    width: 63px;
+    height: 20px;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: italic;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: -0.3px;
+    text-align: center;
+    color: #ffffff;
+  }
+  .vsport-star {
+    width: 110px;
+    height: 25px;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+    font-stretch: normal;
+    line-height: 1.39;
+    letter-spacing: -0.3px;
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+  .right-from{
+    height:58px;
+    background-color: #1b4486;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+.Right-From {
+    margin-top: 17px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: italic;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: -0.5px;
+    text-align: center;
+    color: #ffffff;
+  }
+  @media screen and (min-width:1025px){
+      .bg-image{
+          background-image: url("../images/bg-desktop.png");
+
+      }
+      .right-from{
+          background-image: url("../images/footer-rect-desk.png")
+      }
+      .footer{
+          height:255px;
+      }
+      
+  }
+
+  @media screen and (min-width:768px) and (max-width:1024px){
+      .welcome-note{
+          display:none;
+
+      }
+      .right-from{
+          background-image: url("../images/footer-rect-tab.png");
+      }
+      .footer{
+        height:414px;
+    }
+      .bg-image{
+          background-image: url("../images/bg-tablet.png");
+      }
+      .Book-now{
+            width: 93px;        
+            height: 30px;
+            color:white;
+            border: solid 1px #f47400;
+            background-color: #f47400;
+      }
+  }
+
+  @media screen and (max-width: 767px){
+      .welcome-note{
+          display:none;
+        }
+        .footer{
+            height:443px;
+        }
+        .bg-image{
+            background-image: url("../images/bg-mobile.png");
+        }
+        .Worlds-Most{
+            font-size: 24px;
+        }
+      
+  }
