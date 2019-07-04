@@ -1,0 +1,19 @@
+.flip{
+    transition-duration: 2s;
+    transform: rotateY(3.142rad);
+}
+
+.rotate{
+    transition-duration: 2s;
+    transform:rotate(180deg);
+}
+
+.anti-rotate{
+    transition-duration: 2s;
+    transform: rotate(0deg)
+}
+
+.anti-flip{
+    transition-duration: 2s;
+    transform:rotateY(0deg)
+}
