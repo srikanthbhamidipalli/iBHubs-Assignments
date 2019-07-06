@@ -1,0 +1,13 @@
+.grid-tile{
+    background-color:lightblue;
+    padding: 20px 0;
+    height: 27px;
+    width: 66px;
+}
+
+.initial-grid-tile{
+    background-color: greenyellow;
+    padding: 20px 0;
+    height: 27px;
+    width: 66px;
+}
