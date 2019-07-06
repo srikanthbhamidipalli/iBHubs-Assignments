@@ -15,8 +15,10 @@ class Animation2 extends React.Component{
     render(){
         var classname=this.state.clicked ? 'click-state' : 'base-state';
         return(
-            
-            <div className={classname}><button onClick={this.handleClick}><img src="assets/images/downArrow.png" className="img-content"/></button></div>
+            <div>
+            <div className={classname}><span>Hello , Good Morning!!!</span></div>
+            <div className="div-content"><button onClick={this.handleClick}><img src="assets/images/downArrow.png" className="img-content"/></button></div>
+            </div>
         )
     }
 }

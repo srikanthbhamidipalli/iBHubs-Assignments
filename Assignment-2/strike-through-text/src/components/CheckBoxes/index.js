@@ -8,17 +8,15 @@ class CheckBoxes extends React.Component{
             this.state = {
                 submit_option : false,
                 selected_cities : [],
-                scities : []
             }
-            
+            this.scities=[]
         
         }
     onsubmit = () => {
         this.setState({
             submit_option : true,
-            scities : this.state.selected_cities
         })
-
+        this.scities = this.state.selected_cities
     }
 
     handleChange = e => {
@@ -69,7 +67,7 @@ class CheckBoxes extends React.Component{
                     {this.displayElements()}    
                 </ul>
                 <button onClick={this.onsubmit}>submit</button>
-                { this.state.submit_option ? span=(<span >You have visited these cities <span className=""> { this.state.scities.toString() } </span></span>) : ""}
+                { this.state.submit_option ? span=(<span >You have visited these cities <span className=""> { this.scities.toString() } </span></span>) : ""}
             </div>
         )
     }
