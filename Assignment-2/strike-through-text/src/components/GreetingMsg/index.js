@@ -29,7 +29,7 @@ class GreetingMsg extends React.Component{
         })
     }
 
-    Onfocus_function(e){
+    Onfocus_function = (e) =>{
       this.setState(
           {
               onfocus: true,
@@ -38,25 +38,31 @@ class GreetingMsg extends React.Component{
       
     }
 
+    onBlur = () => {
+        this.setState(
+            {
+                onfocus:false
+            }
+        )
+    }
+
+
     render(){
-        let span,h1;
-        if (this.state.onsubmit){
-            //h1 = <Messages msgcontent={this.state.message}/>;
-            h1 = <h1>{this.state.finalMessage}</h1>
-        }
-        if (this.state.onfocus){
-            span = <span className="user-name-rule">Username should be in A-Za-z</span>
-        }
+        // let span,h1;
+        // if (this.state.onsubmit){
+        //     //h1 = <Messages msgcontent={this.state.message}/>;
+        //     h1 = <h1>{this.state.finalMessage}</h1>
+        // }
         return (
             <div>
                 <form onSubmit={(e) => this.showText(e)} className="input-form">
-                    <input type="text" onChange={(e) => this.updateInputValue(e)} value={this.state.message} onFocus={(e) => this.Onfocus_function(e)}/>
-                    {span}
+                    <input type="text" onChange={(e) => this.updateInputValue(e)} value={this.state.message} onFocus={this.Onfocus_function} onBlur={this.onBlur}/>
+                    {this.state.onfocus ? <span className="user-name-rule">Username should be in A-Za-z</span> : null}
                     <input type="submit" value="Greet" className="submit-button"/>
                 </form>
                 
                 
-                {h1}
+                {this.state.onsubmit?<h1>{this.state.finalMessage}</h1>:null}
                 
             </div>
         )

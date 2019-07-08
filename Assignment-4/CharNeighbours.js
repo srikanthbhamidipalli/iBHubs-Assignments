@@ -1,5 +1,5 @@
 var word="IBHUBS"
-var ch="J"
+var ch="S"
 if(word.indexOf(ch)!=-1){
     if(word.indexOf(ch)==word.length-1){
         console.log(word[word.indexOf(ch)-1])
