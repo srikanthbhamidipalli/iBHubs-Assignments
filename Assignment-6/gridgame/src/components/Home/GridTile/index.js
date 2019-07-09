@@ -8,13 +8,11 @@ class GridTile extends React.Component{
             bgColor:'',
             className:props.className,
         }
-        setTimeout(() => {this.updateState('grid-tile')},props.ms);
+        console.log("in child")
+        setTimeout(() => {this.updateState('grid-tile');console.log("reset")},props.ms);
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.setState({ className: nextProps.className ,bgColor:''});
-        setTimeout(() => {this.updateState('grid-tile')},nextProps.ms);
-      }
+
 
     updateState = (ClassName) => {
         this.setState({
@@ -31,22 +29,12 @@ class GridTile extends React.Component{
         else{
             this.setState({bgColor:'red'});
             setTimeout(() => {this.props.callbackFromParent(id);} ,1000)
-            //this.props.callbackFromParent(id);
         }
     }
 
-    // UpgradeUser = () => {
-    //     if(this.count==this.props.correct.length-1) {
-    //         alert("correct");
-    //     }
-    //}
-
     render(){
         return(
-            <div>
             <div className={this.state.className} id={this.props.value} onClick={this.handleClick} style={{backgroundColor:this.state.bgColor}}></div>
-            {/* { setTimeout(() => {this.state.bgColor == 'red' ? this.goBacktoParent(): null},1000)} */}
-            </div>
         )
     }
 }
