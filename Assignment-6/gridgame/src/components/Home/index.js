@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './styles.css'
 import GridTile from './GridTile'
 
@@ -17,7 +18,6 @@ class Home extends React.Component{
     }
 
     randomNumbersGenerator = (grid_size) => {
-        
         var gridFullSize=grid_size*grid_size;
         var dupCorrect=[]
         var numbersArray=Array.from(Array(gridFullSize).keys())
@@ -42,19 +42,19 @@ class Home extends React.Component{
                         display:"none"
                     }
                     window.location.reload();
-                },1000);
-            }
+                    }   ,1000);
+                }
 
-                setTimeout(() => {this.setState({
+                setTimeout(() => {
+                    this.setState({
                                     level:this.state.level+1,
                                     grid_size:this.state.grid_size+1,
                                     randomNumbers:this.randomNumbersGenerator(this.state.grid_size+1)
-                                    });
-                                    this.userSelected=[];
-                                    //this.randomNumbersGenerator();
-                                    },1000);
+                                  });
+                                this.userSelected=[];
+                                },1000);
                 
-        }
+            }
         }
         else{
             

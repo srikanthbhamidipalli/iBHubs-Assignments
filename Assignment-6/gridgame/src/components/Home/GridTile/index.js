@@ -8,7 +8,6 @@ class GridTile extends React.Component{
             bgColor:'',
             className:props.className,
         }
-        console.log("in child")
         setTimeout(() => {this.updateState('grid-tile');console.log("reset")},props.ms);
     }
 
