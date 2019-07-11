@@ -17,10 +17,8 @@ export default class EachTodo extends Component {
 
   render() {
     var style = {};
-    var style1 = "";
     if (this.props.toDoItem.completed == true) {
       style = { textDecoration: "line-through" };
-      style1 = "checked";
     }
     const todoItem = (
       <div>
@@ -29,7 +27,6 @@ export default class EachTodo extends Component {
             type="checkbox"
             id={this.props.toDoItem.id}
             onClick={this.handleClick}
-            style1
           />
         </span>
         <span style={style}>{this.props.toDoItem.msg}</span>

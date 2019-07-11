@@ -32,7 +32,6 @@ class Todos extends Component {
     });
   };
   callBackFromTodoListDeleteButton = id => {
-    console.log(id);
     var newTodoObjects = this.state.todoObjects;
 
     var filteredTodos = newTodoObjects.filter(
