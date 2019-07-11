@@ -24,21 +24,32 @@ class Todos extends Component {
 
   callBackFromTodoList = id => {
     var newTodoObjects = this.state.todoObjects;
-    newTodoObjects[id].completed = true;
+    newTodoObjects.forEach(element => {
+      if (element.id == id) element.completed = true;
+    });
     this.setState({
       todoObjects: newTodoObjects
     });
   };
-  callBackFromTodoListClearButton = () => {};
+  callBackFromTodoListDeleteButton = id => {
+    console.log(id);
+    var newTodoObjects = this.state.todoObjects;
+
+    var filteredTodos = newTodoObjects.filter(
+      todoItem => todoItem.id !== parseInt(id, 10)
+    );
+    this.setState({
+      todoObjects: filteredTodos
+    });
+  };
   render() {
-    console.log(this.state.todoObjects);
     return (
       <div>
         <AddTodo takeTodo={this.callBackToAddTodo} />
         <TodoList
           todoObjects={this.state.todoObjects}
           callBackFromTodoList={this.callBackFromTodoList}
-          callBackFromClearButton={this.callBackFromTodoListClearButton}
+          callBackFromDeleteButton={this.callBackFromTodoListDeleteButton}
         />
         <FilterTodos />
       </div>

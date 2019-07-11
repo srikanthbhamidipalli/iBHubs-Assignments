@@ -11,8 +11,8 @@ export default class TodoList extends Component {
   callBackToParent = id => {
     this.props.callBackFromTodoList(id);
   };
-  callBackForClearButton = id => {
-    this.props.callBackForClearButton(id);
+  callBackForDeleteButton = id => {
+    this.props.callBackFromDeleteButton(id);
   };
 
   displayTodos = () => {
@@ -23,7 +23,7 @@ export default class TodoList extends Component {
           key={element.id}
           callBackFromTodoList={this.callBackToParent}
           toDoItem={element}
-          callBackForClearButton={this.callBackForClearButton}
+          callBackForDeleteButton={this.callBackForDeleteButton}
         />
       );
     });
