@@ -1,0 +1,7 @@
+
+9:40-10:40
+	~Todos(state array,filter name)
+		-AddTodo(state variable for entering text)
+		-TodoList(props (todos array ))
+			-EachTodo(edit state)
+		-FilterTodo(array length,filter name)
