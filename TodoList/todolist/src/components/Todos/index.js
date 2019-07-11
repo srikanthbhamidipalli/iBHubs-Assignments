@@ -52,7 +52,13 @@ class Todos extends Component {
       todoObjects: newTodoObjects
     });
   };
+  todoFilters = () => {};
+  clearAllTodos = () => {};
   render() {
+    let activeTodos = 0;
+    this.state.todoObjects.forEach(todoItem => {
+      if (todoItem.completed === false) activeTodos++;
+    });
     return (
       <div>
         <AddTodo takeTodo={this.callBackToAddTodo} />
@@ -62,7 +68,13 @@ class Todos extends Component {
           callBackFromDeleteButton={this.callBackFromTodoListDeleteButton}
           receiveUpdatedMsg={this.updateTodoItemMsg}
         />
-        <FilterTodos />
+        {this.state.todoObjects.length > 0 ? (
+          <FilterTodos
+            activeTodos={activeTodos}
+            takeUserSelection={this.todosFilter}
+            userClearFilter={this.clearAllTodos}
+          />
+        ) : null}
       </div>
     );
   }
