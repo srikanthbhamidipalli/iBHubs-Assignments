@@ -41,6 +41,17 @@ class Todos extends Component {
       todoObjects: filteredTodos
     });
   };
+  updateTodoItemMsg = (msg, id) => {
+    var newTodoObjects = this.state.todoObjects;
+
+    newTodoObjects.forEach(element => {
+      if (element.id === id) element.msg = msg;
+    });
+    console.log(newTodoObjects);
+    this.setState({
+      todoObjects: newTodoObjects
+    });
+  };
   render() {
     return (
       <div>
@@ -49,6 +60,7 @@ class Todos extends Component {
           todoObjects={this.state.todoObjects}
           callBackFromTodoList={this.callBackFromTodoList}
           callBackFromDeleteButton={this.callBackFromTodoListDeleteButton}
+          receiveUpdatedMsg={this.updateTodoItemMsg}
         />
         <FilterTodos />
       </div>

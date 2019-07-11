@@ -14,6 +14,9 @@ export default class TodoList extends Component {
   callBackForDeleteButton = id => {
     this.props.callBackFromDeleteButton(id);
   };
+  callBackToParentForUpdation = (updatedMsg, id) => {
+    this.props.receiveUpdatedMsg(updatedMsg, id);
+  };
 
   displayTodos = () => {
     var todoMsgContent = [];
@@ -24,6 +27,7 @@ export default class TodoList extends Component {
           callBackFromTodoList={this.callBackToParent}
           toDoItem={element}
           callBackForDeleteButton={this.callBackForDeleteButton}
+          callBackToParentForUpdation={this.callBackToParentForUpdation}
         />
       );
     });

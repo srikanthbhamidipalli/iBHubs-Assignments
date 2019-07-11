@@ -5,7 +5,7 @@ class AddTodo extends Component {
     super(props);
 
     this.state = {
-      inputText: ""
+      inputText: this.props.value
     };
   }
 
@@ -36,4 +36,7 @@ class AddTodo extends Component {
   }
 }
 
+AddTodo.defaultProps = {
+  value: ""
+};
 export default AddTodo;

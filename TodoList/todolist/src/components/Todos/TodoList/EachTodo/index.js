@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 
+import AddTodo from "../../AddTodo";
+
 export default class EachTodo extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      todoItemEditable: false
+    };
   }
 
   handleClick = e => {
@@ -13,6 +17,17 @@ export default class EachTodo extends Component {
 
   handleDeleteButton = e => {
     this.props.callBackForDeleteButton(e.target.id);
+  };
+  handleUpdateButton = () => {
+    this.setState({
+      todoItemEditable: true
+    });
+  };
+  updateTodoItemCallBack = updatedMsg => {
+    this.props.callBackToParentForUpdation(updatedMsg, this.props.toDoItem.id);
+    this.setState({
+      todoItemEditable: false
+    });
   };
 
   render() {
@@ -34,9 +49,20 @@ export default class EachTodo extends Component {
           <button id={this.props.toDoItem.id} onClick={this.handleDeleteButton}>
             Delete
           </button>
+          <button id={this.props.toDoItem.id} onClick={this.handleUpdateButton}>
+            Update
+          </button>
         </span>
       </div>
     );
-    return <div>{todoItem}</div>;
+    const editableTodoItem = (
+      <AddTodo
+        value={this.props.toDoItem.msg}
+        takeTodo={this.updateTodoItemCallBack}
+      />
+    );
+    return (
+      <div>{this.state.todoItemEditable ? editableTodoItem : todoItem}</div>
+    );
   }
 }
