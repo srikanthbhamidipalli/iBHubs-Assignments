@@ -10,7 +10,8 @@ class Todos extends Component {
     super(props);
 
     this.state = {
-      todoObjects: []
+      todoObjects: [],
+      userSelected: ""
     };
   }
 
@@ -52,8 +53,47 @@ class Todos extends Component {
       todoObjects: newTodoObjects
     });
   };
-  todoFilters = () => {};
-  clearAllTodos = () => {};
+
+  displayAllTodos = () => {
+    if (this.state.userSelected == "all") return this.state.todoObjects;
+    else if (this.state.userSelected == "active") {
+      return this.state.todoObjects.filter(function(todoItem) {
+        return todoItem.completed !== true;
+      });
+    } else if (this.state.userSelected == "completed") {
+      return this.state.todoObjects.filter(function(todoItem) {
+        return todoItem.completed == true;
+      });
+    } else {
+      return this.state.todoObjects;
+    }
+  };
+
+  todosFilters = userSelection => {
+    if (userSelection == "all") {
+      this.setState({
+        userSelected: "all"
+      });
+    } else if (userSelection == "active") {
+      this.setState({
+        userSelected: "active"
+      });
+    } else {
+      this.setState({
+        userSelected: "completed"
+      });
+    }
+  };
+
+  clearAllCompletedTodos = () => {
+    let newTodoObjects = this.state.todoObjects.filter(function(todoItem) {
+      return todoItem.completed !== true;
+    });
+    this.setState({
+      todoObjects: newTodoObjects
+    });
+  };
+
   render() {
     let activeTodos = 0;
     this.state.todoObjects.forEach(todoItem => {
@@ -63,7 +103,7 @@ class Todos extends Component {
       <div>
         <AddTodo takeTodo={this.callBackToAddTodo} />
         <TodoList
-          todoObjects={this.state.todoObjects}
+          todoObjects={this.displayAllTodos()}
           callBackFromTodoList={this.callBackFromTodoList}
           callBackFromDeleteButton={this.callBackFromTodoListDeleteButton}
           receiveUpdatedMsg={this.updateTodoItemMsg}
@@ -71,8 +111,8 @@ class Todos extends Component {
         {this.state.todoObjects.length > 0 ? (
           <FilterTodos
             activeTodos={activeTodos}
-            takeUserSelection={this.todosFilter}
-            userClearFilter={this.clearAllTodos}
+            takeUserSelection={this.todosFilters}
+            userClearFilter={this.clearAllCompletedTodos}
           />
         ) : null}
       </div>

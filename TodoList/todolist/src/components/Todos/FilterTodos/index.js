@@ -6,31 +6,35 @@ export default class FilterTodos extends Component {
 
     this.state = {};
   }
-  handleAllClick = () => {};
+  handleAllClick = () => {
+    this.props.takeUserSelection("all");
+  };
+
+  handleActiveClick = () => {
+    this.props.takeUserSelection("active");
+  };
+  handleCompletedClick = () => {
+    this.props.takeUserSelection("completed");
+  };
+  handleClearAllClick = () => {
+    this.props.userClearFilter();
+  };
 
   render() {
     return (
       <div>
         {this.props.activeTodos + "Left"}
         <span>
-          <button onClick={this.handleAllClick} value="all">
-            All
-          </button>
+          <button onClick={this.handleAllClick}>All</button>
         </span>
         <span>
-          <button onClick={this.handleActiveClick} value="active">
-            Active
-          </button>
+          <button onClick={this.handleActiveClick}>Active</button>
         </span>
         <span>
-          <button onClick={this.handleCompletedClick} value="completed">
-            Completed
-          </button>
+          <button onClick={this.handleCompletedClick}>Completed</button>
         </span>
         <span>
-          <button value="clearAll" onClick={this.handleClearAllClick}>
-            ClearAll
-          </button>
+          <button onClick={this.handleClearAllClick}>Clear Completed</button>
         </span>
       </div>
     );
