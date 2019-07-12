@@ -46,26 +46,31 @@ export default class EachTodo extends Component {
     }
     const todoItem = (
       <div className="todo-row">
-        <span>
+        <span className="checkbox-msg-container">
           <input
             type="checkbox"
             id={this.props.toDoItem.id}
             onClick={this.handleClick}
             style={checkBoxStyle}
+            className="check-box"
           />
-
           <span style={style}>{this.props.toDoItem.msg}</span>
         </span>
-        <span>
-          <button id={this.props.toDoItem.id} onClick={this.handleDeleteButton}>
-            Delete
-          </button>
-        </span>
-        <span>
-          <button id={this.props.toDoItem.id} onClick={this.handleUpdateButton}>
-            Update
-          </button>
-        </span>
+        <div className="update-delete-div">
+          <span>
+            <div id={this.props.toDoItem.id} onClick={this.handleUpdateButton}>
+              Update
+            </div>
+          </span>
+          <span>
+            <img
+              className="delete-button"
+              id={this.props.toDoItem.id}
+              onClick={this.handleDeleteButton}
+              src={"/assets/images/deleteImage.jpeg"}
+            />
+          </span>
+        </div>
       </div>
     );
     const editableTodoItem = (
@@ -75,7 +80,7 @@ export default class EachTodo extends Component {
       />
     );
     return (
-      <div style={{ width: "391px", height: "50px", border: "solid 1px" }}>
+      <div className="todo-list">
         {this.state.todoItemEditable ? editableTodoItem : todoItem}
       </div>
     );

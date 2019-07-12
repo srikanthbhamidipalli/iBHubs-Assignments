@@ -1,6 +1,36 @@
 .todo-row {
   display: flex;
-  justify-content: space-between;
+  font-size: 24px;
+  width: 650px;
+  height: 57px;
+  border: 1px solid #4d4d4d;
+}
+.update-delete-div {
+  display: flex;
+  justify-content: space-around;
   align-items: center;
-  width: 366px;
+  width: 150px;
+  font-size: 10px;
+}
+.delete-button {
+  display: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 25px;
+}
+
+.todo-list :hover .delete-button {
+  display: block;
+  color: #4d4d4d;
+}
+
+.check-box {
+  margin-right: 15px;
+}
+
+.checkbox-msg-container {
+  width: 500px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }

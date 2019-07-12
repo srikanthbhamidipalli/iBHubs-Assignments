@@ -1,12 +1,12 @@
 .filter-list {
   color: #777777;
-  fontsize: 14px;
+  font-size: 14px;
   width: 391px;
   height: 50px;
   border: solid 1px;
   display: flex;
-  flexdirection: row;
-  justifycontent: space-around;
-  alignitems: center;
-  backgroundcolor: white;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
 }

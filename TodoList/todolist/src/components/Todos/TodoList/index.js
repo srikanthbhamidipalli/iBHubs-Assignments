@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 
 import EachTodo from "./EachTodo";
+import "./styles.css";
 
 export default class TodoList extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {};
   }
   callBackToParent = id => {
     this.props.callBackFromTodoList(id);
@@ -34,12 +33,6 @@ export default class TodoList extends Component {
     return todoMsgContent;
   };
   render() {
-    return (
-      <div
-        style={{ color: "#4d4d4d", fontSize: "24px", backgroundColor: "white" }}
-      >
-        {this.displayTodos()}
-      </div>
-    );
+    return <div>{this.displayTodos()}</div>;
   }
 }
