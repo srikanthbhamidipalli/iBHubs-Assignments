@@ -4,13 +4,15 @@ export default class FilterTodos extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.borderStyleForFilters = {};
   }
   handleAllClick = () => {
+    this.borderStyleForFilters = { border: "1px solid rgba(175, 47, 47, 0.2)" };
     this.props.takeUserSelection("all");
   };
 
   handleActiveClick = () => {
+    this.borderStyleForFilters = { border: "1px solid rgba(175, 47, 47, 0.2)" };
     this.props.takeUserSelection("active");
   };
   handleCompletedClick = () => {
@@ -21,70 +23,40 @@ export default class FilterTodos extends Component {
   };
 
   render() {
+    // this.props.userSelected !== null
+    //   ? (document.getElementById(this.props.userSelected).style.border =
+    //       "1px solid black")
+    //   : null;
     return (
-      <div
-        style={{
-          color: "#777777",
-          fontSize: "14px",
-          width: "391px",
-          height: "50px",
-          border: "solid 1px",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-around",
-          alignItems: "center"
-        }}
-      >
-        {this.props.activeTodos + " items Left"}
-        <span>
-          <span
+      <div className="filter-list">
+        <div>{this.props.activeTodos + " items Left"}</div>
+        <div id="all">
+          <div onClick={this.handleAllClick}>All</div>
+        </div>
+        <div style={this.borderStyleForFilters}>
+          <div onClick={this.handleActiveClick}>Active</div>
+        </div>
+        <div>
+          <div
             style={{
-              color: "#777777",
-              fontSize: "14px",
-              borderColor: "rgba(175, 47, 47, 0.2)"
-            }}
-            onClick={this.handleAllClick}
-          >
-            All
-          </span>
-        </span>
-        <span>
-          <span
-            style={{
-              color: "#777777",
-              fontSize: "14px",
-              borderColor: "rgba(175, 47, 47, 0.2)"
-            }}
-            onClick={this.handleActiveClick}
-          >
-            Active
-          </span>
-        </span>
-        <span>
-          <span
-            style={{
-              color: "#777777",
-              fontSize: "14px",
               borderColor: "rgba(175, 47, 47, 0.2)"
             }}
             onClick={this.handleCompletedClick}
           >
             Completed
-          </span>
-        </span>
+          </div>
+        </div>
         {this.props.completedTodos ? (
-          <span>
-            <span
+          <div>
+            <div
               style={{
-                color: "#777777",
-                fontSize: "14px",
                 borderColor: "rgba(175, 47, 47, 0.2)"
               }}
               onClick={this.handleClearAllClick}
             >
               Clear Completed
-            </span>
-          </span>
+            </div>
+          </div>
         ) : null}
       </div>
     );

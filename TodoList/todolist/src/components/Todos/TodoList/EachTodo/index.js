@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import AddTodo from "../../AddTodo";
+import "./styles.css";
 
 export default class EachTodo extends Component {
   constructor(props) {
@@ -52,12 +53,15 @@ export default class EachTodo extends Component {
             onClick={this.handleClick}
             style={checkBoxStyle}
           />
+
+          <span style={style}>{this.props.toDoItem.msg}</span>
         </span>
-        <span style={style}>{this.props.toDoItem.msg}</span>
         <span>
           <button id={this.props.toDoItem.id} onClick={this.handleDeleteButton}>
             Delete
           </button>
+        </span>
+        <span>
           <button id={this.props.toDoItem.id} onClick={this.handleUpdateButton}>
             Update
           </button>

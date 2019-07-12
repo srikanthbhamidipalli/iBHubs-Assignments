@@ -35,7 +35,9 @@ export default class TodoList extends Component {
   };
   render() {
     return (
-      <div style={{ color: "#4d4d4d", fontSize: "24px" }}>
+      <div
+        style={{ color: "#4d4d4d", fontSize: "24px", backgroundColor: "white" }}
+      >
         {this.displayTodos()}
       </div>
     );

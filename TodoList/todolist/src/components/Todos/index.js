@@ -124,6 +124,7 @@ class Todos extends Component {
         {this.state.todoObjects.length > 0 ? (
           <FilterTodos
             activeTodos={activeTodos}
+            userSelected={this.state.userSelected}
             completedTodos={completedTodos}
             takeUserSelection={this.todosFilters}
             userClearFilter={this.clearAllCompletedTodos}

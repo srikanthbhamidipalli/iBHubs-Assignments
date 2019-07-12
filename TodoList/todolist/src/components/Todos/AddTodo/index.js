@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import "./styles.css";
+
 class AddTodo extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +11,8 @@ class AddTodo extends Component {
     };
   }
 
-  handleClick = () => {
+  handleClick = e => {
+    e.preventDefault();
     if (this.state.inputText.length > 0)
       this.props.takeTodo(this.state.inputText);
     this.setState({
@@ -24,29 +27,15 @@ class AddTodo extends Component {
   };
   render() {
     return (
-      <div
-        style={{
-          width: "391px",
-          height: "50px",
-          border: "solid 1px",
-          display: "flex",
-          justifyContent: "space-between"
-        }}
-      >
+      <form className="input-todo-form" onSubmit={this.handleClick}>
         <input
           type="text"
           onChange={this.handleChange}
           value={this.state.inputText}
           placeholder="What needs to be done?"
-          style={{
-            borderColor: "#e1e1e1",
-            borderRadius: "2px",
-            color: "#4d4d4d",
-            fontSize: "24px"
-          }}
+          className="input-text-box"
         />
-        <button onClick={this.handleClick}>submit</button>
-      </div>
+      </form>
     );
   }
 }
