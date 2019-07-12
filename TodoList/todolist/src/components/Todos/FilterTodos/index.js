@@ -22,20 +22,70 @@ export default class FilterTodos extends Component {
 
   render() {
     return (
-      <div>
-        {this.props.activeTodos + "Left"}
+      <div
+        style={{
+          color: "#777777",
+          fontSize: "14px",
+          width: "391px",
+          height: "50px",
+          border: "solid 1px",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-around",
+          alignItems: "center"
+        }}
+      >
+        {this.props.activeTodos + " items Left"}
         <span>
-          <button onClick={this.handleAllClick}>All</button>
+          <span
+            style={{
+              color: "#777777",
+              fontSize: "14px",
+              borderColor: "rgba(175, 47, 47, 0.2)"
+            }}
+            onClick={this.handleAllClick}
+          >
+            All
+          </span>
         </span>
         <span>
-          <button onClick={this.handleActiveClick}>Active</button>
+          <span
+            style={{
+              color: "#777777",
+              fontSize: "14px",
+              borderColor: "rgba(175, 47, 47, 0.2)"
+            }}
+            onClick={this.handleActiveClick}
+          >
+            Active
+          </span>
         </span>
         <span>
-          <button onClick={this.handleCompletedClick}>Completed</button>
+          <span
+            style={{
+              color: "#777777",
+              fontSize: "14px",
+              borderColor: "rgba(175, 47, 47, 0.2)"
+            }}
+            onClick={this.handleCompletedClick}
+          >
+            Completed
+          </span>
         </span>
-        <span>
-          <button onClick={this.handleClearAllClick}>Clear Completed</button>
-        </span>
+        {this.props.completedTodos ? (
+          <span>
+            <span
+              style={{
+                color: "#777777",
+                fontSize: "14px",
+                borderColor: "rgba(175, 47, 47, 0.2)"
+              }}
+              onClick={this.handleClearAllClick}
+            >
+              Clear Completed
+            </span>
+          </span>
+        ) : null}
       </div>
     );
   }

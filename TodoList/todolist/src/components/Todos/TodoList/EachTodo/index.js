@@ -16,7 +16,8 @@ export default class EachTodo extends Component {
   };
 
   handleDeleteButton = e => {
-    this.props.callBackForDeleteButton(e.target.id);
+    if (window.confirm("Are you sure"))
+      this.props.callBackForDeleteButton(e.target.id);
   };
   handleUpdateButton = () => {
     this.setState({
@@ -32,16 +33,24 @@ export default class EachTodo extends Component {
 
   render() {
     var style = {};
+    var checkBoxStyle = {
+      height: "40px",
+      width: "40px",
+      borderRadius: "20px",
+      color: "#f5f5f5"
+    };
     if (this.props.toDoItem.completed == true) {
-      style = { textDecoration: "line-through" };
+      style = { textDecoration: "line-through", color: "#d9d9d9" };
+      checkBoxStyle["color"] = "#2b833c";
     }
     const todoItem = (
-      <div>
+      <div className="todo-row">
         <span>
           <input
             type="checkbox"
             id={this.props.toDoItem.id}
             onClick={this.handleClick}
+            style={checkBoxStyle}
           />
         </span>
         <span style={style}>{this.props.toDoItem.msg}</span>
@@ -62,7 +71,9 @@ export default class EachTodo extends Component {
       />
     );
     return (
-      <div>{this.state.todoItemEditable ? editableTodoItem : todoItem}</div>
+      <div style={{ width: "391px", height: "50px", border: "solid 1px" }}>
+        {this.state.todoItemEditable ? editableTodoItem : todoItem}
+      </div>
     );
   }
 }

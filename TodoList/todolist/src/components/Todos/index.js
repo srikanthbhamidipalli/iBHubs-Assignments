@@ -95,12 +95,25 @@ class Todos extends Component {
   };
 
   render() {
-    let activeTodos = 0;
+    let activeTodos = 0,
+      completedTodos = 0;
     this.state.todoObjects.forEach(todoItem => {
       if (todoItem.completed === false) activeTodos++;
     });
+    this.state.todoObjects.forEach(todoItem => {
+      if (todoItem.completed === true) completedTodos++;
+    });
     return (
-      <div>
+      <div
+        style={{
+          background: "#f5f5f5",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          height: "100vh"
+        }}
+      >
+        <text style={{ color: "lightred", fontSize: "80px" }}>todos</text>
         <AddTodo takeTodo={this.callBackToAddTodo} />
         <TodoList
           todoObjects={this.displayAllTodos()}
@@ -111,6 +124,7 @@ class Todos extends Component {
         {this.state.todoObjects.length > 0 ? (
           <FilterTodos
             activeTodos={activeTodos}
+            completedTodos={completedTodos}
             takeUserSelection={this.todosFilters}
             userClearFilter={this.clearAllCompletedTodos}
           />
