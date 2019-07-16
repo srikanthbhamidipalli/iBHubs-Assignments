@@ -23,20 +23,16 @@ export default class FilterTodos extends Component {
   };
 
   render() {
-    // this.props.userSelected !== null
-    //   ? (document.getElementById(this.props.userSelected).style.border =
-    //       "1px solid black")
-    //   : null;
     return (
       <div className="filter-list">
         <div>{this.props.activeTodos + " items Left"}</div>
-        <div className={this.props.userSelected=="all"?"user-selection":null}>
+        <div className={this.props.userSelected=="all"?"user-selection":"user-unselected"}>
           <div onClick={this.handleAllClick}>All</div>
         </div>
-        <div className={this.props.userSelected=="active"?"user-selection":null}>
+        <div className={this.props.userSelected=="active"?"user-selection":"user-unselected"}>
           <div onClick={this.handleActiveClick}>Active</div>
         </div>
-        <div className={this.props.userSelected=="completed"?"user-selection":null}>
+        <div className={this.props.userSelected=="completed"?"user-selection":"user-unselected"}>
           <div
             onClick={this.handleCompletedClick}
           >
@@ -44,7 +40,7 @@ export default class FilterTodos extends Component {
           </div>
         </div>
         {this.props.completedTodos ? (
-          <div>
+          <div className="clear-completed">
             <div
               onClick={this.handleClearAllClick}
             >

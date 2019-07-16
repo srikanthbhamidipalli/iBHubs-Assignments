@@ -27,7 +27,9 @@ class Todos extends Component {
   callBackFromTodoList = id => {
     var newTodoObjects = this.state.todoObjects;
     newTodoObjects.forEach(element => {
-      if (element.id == id) element.completed = true;
+      if (element.id == id) {
+        element.completed?element.completed=false:element.completed=true;
+      }
     });
     this.setState({
       todoObjects: newTodoObjects

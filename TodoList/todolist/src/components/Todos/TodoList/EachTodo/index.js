@@ -8,11 +8,15 @@ export default class EachTodo extends Component {
     super(props);
 
     this.state = {
-      todoItemEditable: false
+      todoItemEditable: false,
+      completed:false,
     };
   }
 
   handleClick = e => {
+    this.setState({
+      completed:this.state.completed?false:true,
+    })
     this.props.callBackFromTodoList(e.target.id);
   };
 
@@ -35,27 +39,24 @@ export default class EachTodo extends Component {
   render() {
     console.log(this.state.todoItemEditable)
     var style = {};
-    var checkBoxStyle = {
-      height: "40px",
-      width: "40px",
-      borderRadius: "20px",
-      color: "#f5f5f5"
-    };
     if (this.props.toDoItem.completed == true) {
       style = { textDecoration: "line-through", color: "#d9d9d9" };
-      checkBoxStyle["color"] = "#2b833c";
     }
     const todoItem = (
       <div className="todo-row" onDoubleClick={this.handleUpdateButton}>
         <span className="checkbox-msg-container">
-          <input
-            type="checkbox"
+          {this.state.completed?<img
+            src="/assets/images/tick-img.jpg"
             id={this.props.toDoItem.id}
             onClick={this.handleClick}
-            style={checkBoxStyle}
-            className="check-box"
-          />
-          <span style={style}>{this.props.toDoItem.msg}</span>
+            className="untick-img"
+          />:<img
+          src="/assets/images/index.png"
+          id={this.props.toDoItem.id}
+          onClick={this.handleClick}
+          className="untick-img"
+        />}
+          <span style={style} className="todo-msg">{this.props.toDoItem.msg}</span>
         </span>
         <div className="update-delete-div">
           <span>
