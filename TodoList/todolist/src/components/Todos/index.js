@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import AddTodo from "./AddTodo";
 import TodoList from "./TodoList";
 import FilterTodos from "./FilterTodos";
+import './styles.css'
 
 class Todos extends Component {
   id = 0;
@@ -11,7 +12,7 @@ class Todos extends Component {
 
     this.state = {
       todoObjects: [],
-      userSelected: ""
+      userSelected: "all"
     };
   }
 
@@ -95,6 +96,7 @@ class Todos extends Component {
   };
 
   render() {
+    console.log("in parent",this.state.userSelected)
     let activeTodos = 0,
       completedTodos = 0;
     this.state.todoObjects.forEach(todoItem => {
@@ -104,16 +106,9 @@ class Todos extends Component {
       if (todoItem.completed === true) completedTodos++;
     });
     return (
-      <div
-        style={{
-          background: "#f5f5f5",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          height: "100vh"
-        }}
+      <div className="todos-container"
       >
-        <text style={{ color: "lightred", fontSize: "80px" }}>todos</text>
+        <text style={{ color: "lightred", fontSize: "80px" }} className="todos-header">todos</text>
         <AddTodo takeTodo={this.callBackToAddTodo} />
         <TodoList
           todoObjects={this.displayAllTodos()}

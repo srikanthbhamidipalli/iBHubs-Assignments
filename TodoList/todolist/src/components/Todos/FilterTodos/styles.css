@@ -1,7 +1,7 @@
 .filter-list {
   color: #777777;
   font-size: 14px;
-  width: 391px;
+  width: 650px;
   height: 50px;
   border: solid 1px;
   display: flex;
@@ -9,4 +9,9 @@
   justify-content: space-around;
   align-items: center;
   background-color: white;
+}
+
+.user-selection{
+  border: 1px solid white;
+  border-color: rgba(175, 47, 47, 0.2)
 }

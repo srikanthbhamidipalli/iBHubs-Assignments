@@ -9,12 +9,10 @@ export default class FilterTodos extends Component {
     this.borderStyleForFilters = {};
   }
   handleAllClick = () => {
-    this.borderStyleForFilters = { border: "1px solid rgba(175, 47, 47, 0.2)" };
     this.props.takeUserSelection("all");
   };
 
   handleActiveClick = () => {
-    this.borderStyleForFilters = { border: "1px solid rgba(175, 47, 47, 0.2)" };
     this.props.takeUserSelection("active");
   };
   handleCompletedClick = () => {
@@ -32,17 +30,14 @@ export default class FilterTodos extends Component {
     return (
       <div className="filter-list">
         <div>{this.props.activeTodos + " items Left"}</div>
-        <div id="all">
+        <div className={this.props.userSelected=="all"?"user-selection":null}>
           <div onClick={this.handleAllClick}>All</div>
         </div>
-        <div style={this.borderStyleForFilters}>
+        <div className={this.props.userSelected=="active"?"user-selection":null}>
           <div onClick={this.handleActiveClick}>Active</div>
         </div>
-        <div>
+        <div className={this.props.userSelected=="completed"?"user-selection":null}>
           <div
-            style={{
-              borderColor: "rgba(175, 47, 47, 0.2)"
-            }}
             onClick={this.handleCompletedClick}
           >
             Completed
@@ -51,9 +46,6 @@ export default class FilterTodos extends Component {
         {this.props.completedTodos ? (
           <div>
             <div
-              style={{
-                borderColor: "rgba(175, 47, 47, 0.2)"
-              }}
               onClick={this.handleClearAllClick}
             >
               Clear Completed

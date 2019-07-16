@@ -3,7 +3,8 @@
   font-size: 24px;
   width: 650px;
   height: 57px;
-  border: 1px solid #4d4d4d;
+  border: 0.5px solid #4d4d4d;
+  
 }
 .update-delete-div {
   display: flex;

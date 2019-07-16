@@ -33,6 +33,7 @@ export default class EachTodo extends Component {
   };
 
   render() {
+    console.log(this.state.todoItemEditable)
     var style = {};
     var checkBoxStyle = {
       height: "40px",
@@ -45,7 +46,7 @@ export default class EachTodo extends Component {
       checkBoxStyle["color"] = "#2b833c";
     }
     const todoItem = (
-      <div className="todo-row">
+      <div className="todo-row" onDoubleClick={this.handleUpdateButton}>
         <span className="checkbox-msg-container">
           <input
             type="checkbox"
@@ -58,16 +59,11 @@ export default class EachTodo extends Component {
         </span>
         <div className="update-delete-div">
           <span>
-            <div id={this.props.toDoItem.id} onClick={this.handleUpdateButton}>
-              Update
-            </div>
-          </span>
-          <span>
             <img
               className="delete-button"
               id={this.props.toDoItem.id}
               onClick={this.handleDeleteButton}
-              src={"/assets/images/deleteImage.jpeg"}
+              src={"/assets/images/delete-button.png"}
             />
           </span>
         </div>
