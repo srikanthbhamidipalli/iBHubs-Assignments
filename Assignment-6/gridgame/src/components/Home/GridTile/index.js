@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './styles.css'
 
 class GridTile extends React.Component{
@@ -10,8 +11,6 @@ class GridTile extends React.Component{
         }
         setTimeout(() => {this.updateState('grid-tile');console.log("reset")},props.ms);
     }
-
-
 
     updateState = (ClassName) => {
         this.setState({

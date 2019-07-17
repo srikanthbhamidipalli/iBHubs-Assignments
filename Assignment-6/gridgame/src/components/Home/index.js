@@ -10,7 +10,8 @@ class Home extends React.Component {
       className: "page-header-light",
       level: 0,
       grid_size: props.grid_size,
-      randomNumbers: this.randomNumbersGenerator(props.grid_size)
+      randomNumbers: this.randomNumbersGenerator(props.grid_size),
+      timeUp:false,
     };
     this.userSelected = [];
     this.keyText = "";
