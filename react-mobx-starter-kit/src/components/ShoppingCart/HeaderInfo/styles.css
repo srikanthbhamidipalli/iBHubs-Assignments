@@ -1,0 +1,15 @@
+.select-list {
+  border: 2px solid #bbb;
+}
+
+.select-list :hover {
+  border-color: black;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1520px;
+  height: 30px;
+}

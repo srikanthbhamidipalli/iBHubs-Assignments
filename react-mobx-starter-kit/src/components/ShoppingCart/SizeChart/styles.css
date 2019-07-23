@@ -1,0 +1,45 @@
+.div-with-size-label {
+  background-color: lightgrey;
+  border: none;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 11px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  height: 15px;
+  width: 15px;
+  border-radius: 30px;
+}
+
+div :hover {
+  border-color: black;
+}
+
+.div-with-black-color {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 11px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 1px solid black;
+  height: 15px;
+  width: 15px;
+  border-radius: 30px;
+}
+
+.sizes-heading-text {
+  font-size: 22px;
+}
+
+.size-chart {
+  width: 245px;
+}

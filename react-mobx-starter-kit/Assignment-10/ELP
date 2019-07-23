@@ -1,0 +1,19 @@
+ELP for Shopping Cart
+
+ProductStore
+	-observables-OrderBy,productList,CartList,SelectedSize(array)
+	-@ctions-AddProduct(instance),AddtoCart(id),RemoveFromCart
+	computed-ProductFilter,subTotalAmount
+
+ProductsModel(productObject),
+
+CartItemModel(id,quantity)
+	@ction-incQuantity
+
+ShoppingCart
+	-SizeChart
+	-HeaderInfo
+	-DisplayProducts
+	  -EachProduct
+	-Cart
+	  -SelectedProduct

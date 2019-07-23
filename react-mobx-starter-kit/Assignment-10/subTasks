@@ -1,0 +1,77 @@
+1)Implementing ProductModel:-15min--DONE
+	-parameter-product instance
+	-constructor-individual assignment
+
+2)Implementing cartItemModel:-15min--DONE
+	-parameter-product instance
+	-constructor-individual assignment
+	-observable-Quantity
+	-@ction-incQuantity
+
+3)Implementing Store:-15min--DONE
+	-observables-OrderBy,productList,CartItemList,SelectedSize(array)
+	-@ctions-buyProductToStore(instance),AddProducttoCart(id),RemoveProductFromCart
+	-computed-orderByFilteredProducts,subTotalAmount
+
+4)Implementing SizeChart:-4:40-5:20--DONE
+	i)sizes division
+	    -Sizes Text
+	    -Rounded button 
+	    -onclick color Toggle
+	    -onHover border and cursor-pointer
+	    -7 similar buttons with size labels on them
+	    -Buttons Alignment
+	    	
+5)Implementing Header:-20:25-21:00--DONE
+	i)Product found text
+       ii)Order by Text
+	      -Select list 
+		-select
+		-low-to-high
+		-high-to-low
+               -onHover Border
+      iii)Alignment
+
+6)Implementing Single ProductItem:-09:45-10:25--11:00
+	i)product division
+	   -onHover border and cursor-pointer and addToCart color toggle
+	   -free shipping lable div
+	   -Product Properties
+	   -Add to cartButton with label
+	   -Alignment of product properties
+
+7)Implementing Product Display:-11:35-12:00(extra half an hour for free shipping alignment)
+	i)ProductDislay Division
+	    -render all productItems
+	    -align them
+
+functionality and integration -(12:40-1:20)(extra 6 minutes) 
+8)Implementing cartIcon Div:-
+	-Icon Division
+	   -Cart image
+	   -rounded div with label
+	-onHover cursor-pointer
+	-onClick toggle Show CartDisplay 
+
+9)Implementing CartDisplay:-
+	   -div		
+		-div
+		  - cart icon with label (re-use)
+		  - cart text
+		-div
+		  - initial note in cart display
+		-div
+		  - subtotal text and price, installments price
+		       -alignment
+		  - CheckOut Button
+			-onHover BackGround Color dark and Pointer
+	   -Alignment
+
+10)Implementing CartItem:-
+	-cartItem div
+		- product img
+		-name,size,style,Quantity,Price
+		-delete icon
+	        -onHover background color Toggle and text strike-off
+
+

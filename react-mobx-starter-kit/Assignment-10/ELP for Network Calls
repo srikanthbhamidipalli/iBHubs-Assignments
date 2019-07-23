@@ -1,0 +1,31 @@
+
+1)Fetch data from url
+	@action fetchDataFromApi
+2) calling this action from respective webpage
+3)show the message "products are loading" untilthe products loads into the page.
+4) Show the message "Something went wrong description" for Page Error..
+5) Show the message "No products found in API" when the API response is Empty.
+
+
+---SubTasks---
+productsFetchingStatus="loading"
+failureMessage=""
+
+1)write an action for fetching products
+	-const url=""
+	-fetchingProducts( return productsJsonAray)
+	-catch(e)=>failureMessage=e.message)
+	-productsFetchingStatus="Loading Completed"
+
+2)write function call for fetching Products function
+
+if(productsFetchingStatus==="loading")
+3)Loading message
+	-productsFetchingStatus(observable)
+
+else if(failureMessage!=="")
+4)Page Error message
+
+else
+productList.length===0
+5)No products found message.

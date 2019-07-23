@@ -1,0 +1,42 @@
+.product-pic {
+  height: 150px;
+  width: 70px;
+}
+
+.price-inside-cart {
+  color: orange;
+}
+
+.each-cart-item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+  box-shadow: -4px -3px 5px 1px #404040;
+}
+
+.item-info-container {
+  display: flex;
+  flex-basis: 100%;
+  flex-direction: column;
+  padding-left: 15px;
+}
+
+.size-and-quantity {
+  color: grey;
+}
+
+.delete-icon {
+  position: absolute;
+  font-weight: 600;
+  color: white;
+  right: 2px;
+  top: 6px;
+  cursor: pointer;
+}
+
+.delete-icon:hover .each-cart-item {
+  text-decoration: line-through;
+}
