@@ -22,21 +22,36 @@ class UserInputForm extends Component {
   handlePasswordChange = e => {
     this.passwordText = e.target.value;
   };
-  handleSubmit = () => {
+  handleSubmit = e => {
+    e.preventDefault();
     userLoginCredentials["username"] = this.inputText;
     userLoginCredentials["password"] = this.passwordText;
-    this.props.store.userLogin(userLoginCredentials);
+    if (this.props.type === "LOGIN") {
+      this.props.store.userLogin(userLoginCredentials);
+    } else {
+      this.props.store.userSignUp(userLoginCredentials);
+    }
+    this.inputText = "";
+    this.passwordText = "";
   };
+  componentDidMount() {
+    this.props.store.error = "";
+  }
 
   render() {
     return (
-      <InputForm>
-        <ErrorMessage>Error!!!</ErrorMessage>
+      <InputForm onSubmit={this.handleSubmit}>
+        <ErrorMessage>
+          {this.props.store.error === "ok"
+            ? "user created successfully, please Login!"
+            : this.props.store.error}
+        </ErrorMessage>
         <LabelText>Username</LabelText>
         <TextBox
           type="text"
           value={this.inputText}
           onChange={this.handleUsernameChange}
+          required
         />
         <br />
         <LabelText>Password</LabelText>
@@ -44,11 +59,10 @@ class UserInputForm extends Component {
           type="password"
           value={this.passwordText}
           onChange={this.handlePasswordChange}
+          required
         />
         <br />
-        <SubmitButton type="submit" onClick={this.handleSubmit}>
-          Submit
-        </SubmitButton>
+        <SubmitButton type="submit">Submit</SubmitButton>
       </InputForm>
     );
   }

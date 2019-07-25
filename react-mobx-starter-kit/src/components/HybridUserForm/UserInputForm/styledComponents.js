@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const InputForm = styled.div`
+export const InputForm = styled.form`
   height: 200px;
   width: 300px;
   background-color: lightgrey;

@@ -1,16 +1,17 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 // import Counter from './components/Counter'
 // import FilterableProductTable from './components/FilterableProductTable'
 // import Todos from './components/Todos'
 // import todoStore from "./Todos";
 import ShoppingCart from "./components/ShoppingCart";
-import appStore from "./AppStore";
+// import appStore from "./AppStore";
 import { observer } from "mobx-react";
 import HybridUserForm from "./components/HybridUserForm";
+import appStore from "./AppStore";
 @observer
 class App extends Component {
-  state = {};
   render() {
     return (
       <div className="App">
@@ -24,7 +25,34 @@ class App extends Component {
           {category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
         ]}/>
         <Todos store={ todoStore }/> */}
-        <HybridUserForm appStore={appStore} />
+        <Router>
+          <div>
+            {appStore.accessToken.length > 0 ? (
+              <Redirect to="/protected" />
+            ) : (
+              ""
+            )}
+            ;
+            <Route
+              path="/protected"
+              render={() => <ShoppingCart appStore={appStore} />}
+            />
+            <Route
+              exact
+              path="/login"
+              render={() => <HybridUserForm type={"LOGIN"} store={appStore} />}
+            />
+            <Route
+              exact
+              path="/signUp"
+              render={() => (
+                <HybridUserForm type={"SIGN-UP"} store={appStore} />
+              )}
+            />
+            <Redirect to="/login" />
+          </div>
+        </Router>
+        {/* <HybridUserForm appStore={appStore} /> */}
         {/* <ShoppingCart appStore={appStore} /> */}
       </div>
     );

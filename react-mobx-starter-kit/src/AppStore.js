@@ -10,6 +10,8 @@ class AppStore {
   @observable selectedSize = [];
   @observable failureMessage = "";
   @observable productsFetchingStatus = "loading";
+  @observable error = "";
+  @observable accessToken = "";
 
   @action buyProductToStore = products => {
     // products = [];
@@ -19,9 +21,16 @@ class AppStore {
   };
 
   @action.bound async fetchProductsData() {
-    const apiUrl = "https://demo8129378.mockable.io/products/all/v1";
+    const options = {
+      method: "POST",
+      headers: {
+        Authorization: this.accessToken,
+        "Content-Type": "application/json"
+      }
+    };
+    const apiUrl = "https://user-shopping-cart.getsandbox.com/products/v1/";
     try {
-      const result = await fetch(apiUrl);
+      const result = await fetch(apiUrl, options);
       if (!result.ok) throw new Error(result.status);
       else {
         const productsData = await result.json();
@@ -70,19 +79,30 @@ class AppStore {
     this.cartItemList.splice(index, 1);
   };
 
-  @action userLogin = body => {
-    console.log(body);
+  @action.bound async userLogin(body) {
     const options = {
       method: "POST",
-      body: body,
+      body: JSON.stringify(body),
       headers: {
         "Content-Type": "application/json"
       }
     };
-    fetch("https://user-shopping-cart.getsandbox.com/login/v1/", options)
-      .then(res => res.json())
-      .then(res => console.log(res));
-  };
+    try {
+      let result = await fetch(
+        "https://user-shopping-cart.getsandbox.com/login/v1/",
+        options
+      );
+      result = await result.json();
+      if (!result.status) {
+        this.error = result.error;
+      } else {
+        const response = await result;
+        this.accessToken = response.accessToken;
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
   @action userSignUp = body => {
     const options = {
@@ -92,9 +112,11 @@ class AppStore {
         "Content-Type": "application/json"
       }
     };
-    fetch("​​ https://user-shopping-cart.getsandbox.com/sign_up/v1/", options)
+    fetch("https://user-shopping-cart.getsandbox.com/sign_up/v1/", options)
       .then(res => res.json())
-      .then(res => console.log(res));
+      .then(res =>
+        res.error ? (this.error = res.error) : (this.error = res.status)
+      );
   };
 
   @computed get orderByFilteredProducts() {
