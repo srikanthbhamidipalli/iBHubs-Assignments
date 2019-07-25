@@ -7,6 +7,7 @@ import React, { Component } from "react";
 import ShoppingCart from "./components/ShoppingCart";
 import appStore from "./AppStore";
 import { observer } from "mobx-react";
+import HybridUserForm from "./components/HybridUserForm";
 @observer
 class App extends Component {
   state = {};
@@ -23,7 +24,8 @@ class App extends Component {
           {category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
         ]}/>
         <Todos store={ todoStore }/> */}
-        <ShoppingCart appStore={appStore} />
+        <HybridUserForm />
+        {/* <ShoppingCart appStore={appStore} /> */}
       </div>
     );
   }

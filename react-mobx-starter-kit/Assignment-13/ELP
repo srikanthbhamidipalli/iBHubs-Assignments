@@ -1,0 +1,14 @@
+
+ELP for ShoppingCart Login and Logout using React-Router:-
+	-component Login/SignUp(observables-inputText,password)
+	-Private Route for products component
+	-root component login route and in constructor redirect(login)
+	-page onload login Page
+		(page heading by location)
+		-if signedUp-Login
+			-username,password onSubmit to api (get AccessToken) 
+		-else goTo SignUp page(route signup component=login)
+		-route for login (redirect to login)
+	-if Fields are empty then "mandatory message"
+	-if credentials are wrong then "wrong Credentials"
+

@@ -70,6 +70,25 @@ class AppStore {
     this.cartItemList.splice(index, 1);
   };
 
+  @action userLogin = () => {
+    const myPost = {
+      title: "A post about true facts",
+      body: "42",
+      userId: 2
+    };
+
+    const options = {
+      method: "POST",
+      body: JSON.stringify(myPost),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    fetch("https://jsonplaceholder.typicode.com/posts", options)
+      .then(res => res.json())
+      .then(res => console.log(res));
+  };
+
   @computed get orderByFilteredProducts() {
     let productsWithSelectedSizes = [];
     for (let i = 0; i < this.selectedSize.length; i++) {
