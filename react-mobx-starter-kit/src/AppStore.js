@@ -71,14 +71,15 @@ class AppStore {
   };
 
   @action userLogin = body => {
+    console.log(body);
     const options = {
       method: "POST",
-      body: JSON.stringify(body),
+      body: body,
       headers: {
         "Content-Type": "application/json"
       }
     };
-    fetch("​https://user-shopping-cart.getsandbox.com/login/v1/", options)
+    fetch("https://user-shopping-cart.getsandbox.com/login/v1/", options)
       .then(res => res.json())
       .then(res => console.log(res));
   };

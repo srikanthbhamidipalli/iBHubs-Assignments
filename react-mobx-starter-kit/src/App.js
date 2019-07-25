@@ -24,7 +24,7 @@ class App extends Component {
           {category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
         ]}/>
         <Todos store={ todoStore }/> */}
-        <HybridUserForm />
+        <HybridUserForm appStore={appStore} />
         {/* <ShoppingCart appStore={appStore} /> */}
       </div>
     );

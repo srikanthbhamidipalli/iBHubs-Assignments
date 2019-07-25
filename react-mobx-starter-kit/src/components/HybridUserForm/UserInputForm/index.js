@@ -9,11 +9,25 @@ import {
   SubmitButton,
   ErrorMessage
 } from "./styledComponents";
-import userLoginCredentials from "../constants";
+import { userLoginCredentials } from "../constants";
 
 @observer
 class UserInputForm extends Component {
-  @observable
+  @observable inputText = "";
+  @observable passwordText = "";
+
+  handleUsernameChange = e => {
+    this.inputText = e.target.value;
+  };
+  handlePasswordChange = e => {
+    this.passwordText = e.target.value;
+  };
+  handleSubmit = () => {
+    userLoginCredentials["username"] = this.inputText;
+    userLoginCredentials["password"] = this.passwordText;
+    this.props.store.userLogin(userLoginCredentials);
+  };
+
   render() {
     return (
       <InputForm>

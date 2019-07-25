@@ -10,7 +10,7 @@ class HybridUserForm extends Component {
         <HeadingText>
           <h4>LOGIN</h4>
         </HeadingText>
-        <UserInputForm />
+        <UserInputForm store={this.props.appStore} />
         <FooterText>
           Not registered!!! {"   "}
           <a href="#">SignUp</a>
