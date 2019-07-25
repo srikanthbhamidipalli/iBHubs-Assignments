@@ -70,21 +70,28 @@ class AppStore {
     this.cartItemList.splice(index, 1);
   };
 
-  @action userLogin = () => {
-    const myPost = {
-      title: "A post about true facts",
-      body: "42",
-      userId: 2
-    };
-
+  @action userLogin = body => {
     const options = {
       method: "POST",
-      body: JSON.stringify(myPost),
+      body: JSON.stringify(body),
       headers: {
         "Content-Type": "application/json"
       }
     };
-    fetch("https://jsonplaceholder.typicode.com/posts", options)
+    fetch("​https://user-shopping-cart.getsandbox.com/login/v1/", options)
+      .then(res => res.json())
+      .then(res => console.log(res));
+  };
+
+  @action userSignUp = body => {
+    const options = {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    fetch("​​ https://user-shopping-cart.getsandbox.com/sign_up/v1/", options)
       .then(res => res.json())
       .then(res => console.log(res));
   };

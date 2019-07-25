@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { observer } from "mobx-react";
+import { observable } from "mobx";
 
 import {
   InputForm,
@@ -7,7 +9,11 @@ import {
   SubmitButton,
   ErrorMessage
 } from "./styledComponents";
+import userLoginCredentials from "../constants";
+
+@observer
 class UserInputForm extends Component {
+  @observable
   render() {
     return (
       <InputForm>
