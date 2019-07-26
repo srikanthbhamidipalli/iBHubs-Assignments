@@ -1,8 +1,40 @@
 
-ShoppingCart Components TestCases:-
--Is it calling the fetchProductsData function in componentDidMount method.
--are the products are added to the productlist.
--Is it rendering the 4(sizeChart,HeaderInfo,productDisplay,Cart) components properly.
--Is the styles are applyig for HomeDivision(styled Component).
+ShoppingCart Component TestCases:-
+	-Is it calling the fetchProductsData function in componentDidMount method.
+	-are the products are added to the productlist.
+	-Is it rendering the 4(sizeChart,HeaderInfo,productDisplay,Cart) components properly.
+	-Is the styles are applyig for HomeDivision(styled Component).
+
+SizeChart component TestCases:-
+	-Is it rendering EachItemSize component.
+	-Is it handling onClick event.
+	-Are the selected sizes are adding to the selectedSizes list.
+	-Is the styles are applying for Sizes.
+
+HeaderInfo component TestCases:-
+	-is it printing the products count properly.
+	-is the orderBy filter is working fine or not.
+
+DisplayProducts component TestCases:-
+	-Is it rendering EachProduct component.
+	-is the loading text is displaying.
+	-are the products displaying in the page.
+	-if error it will display Something went wrong message.
+	-is the correct message printing for empty products.
+
+EachProduct component TestCases:-
+	-Is it loading all the required properties of every product.
+	-is it handling handleSizeClick for selecting Size for particular product.
+	-is it handling handleClick for Add to cart for particular product.
+	-are the products added to cartList.
+	-is the cart items count updating.
+
+
+
+ 
+
+
+
+
 
 

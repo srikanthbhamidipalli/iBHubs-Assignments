@@ -64,7 +64,7 @@ class EachProduct extends Component {
         <SizeSelector>
           <select onClick={this.handleSizeClick}>{selectSizeList}</select>
         </SizeSelector>
-        <div>${eachItem.price}</div>
+        <div id="price">${eachItem.price}</div>
         <div>
           or{" "}
           {eachItem.installments +
