@@ -9,7 +9,11 @@ import {
   SubmitButton,
   ErrorMessage
 } from "./styledComponents";
-import { userLoginCredentials } from "../constants";
+import {
+  userLoginCredentials,
+  signUpSuccessMessage,
+  userVisitedForm
+} from "../constants";
 
 @observer
 class UserInputForm extends Component {
@@ -26,7 +30,7 @@ class UserInputForm extends Component {
     e.preventDefault();
     userLoginCredentials["username"] = this.inputText;
     userLoginCredentials["password"] = this.passwordText;
-    if (this.props.type === "LOGIN") {
+    if (this.props.type === userVisitedForm) {
       this.props.store.userLogin(userLoginCredentials);
     } else {
       this.props.store.userSignUp(userLoginCredentials);
@@ -43,7 +47,7 @@ class UserInputForm extends Component {
       <InputForm onSubmit={this.handleSubmit}>
         <ErrorMessage>
           {this.props.store.error === "ok"
-            ? "user created successfully, please Login!"
+            ? signUpSuccessMessage
             : this.props.store.error}
         </ErrorMessage>
         <LabelText>Username</LabelText>

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { observer } from "mobx-react";
 
 import { UserFormContainer, HeadingText, FooterText } from "./styledComponents";
 import UserInputForm from "./UserInputForm";
-import { observer } from "mobx-react";
-
+import { userVisitedForm } from "./constants";
 @observer
 class HybridUserForm extends Component {
   render() {
@@ -15,11 +15,16 @@ class HybridUserForm extends Component {
         </HeadingText>
         <UserInputForm store={this.props.store} type={this.props.type} />
         <FooterText>
-          Not registered!!!
-          {this.props.type === "LOGIN" ? (
-            <Link to="/signUp">{"     "} SignUp</Link>
+          {this.props.type === userVisitedForm ? (
+            <div>
+              <span>Not registered!!!</span>
+              <Link to="/signup"> SignUp</Link>
+            </div>
           ) : (
-            <Link to="/login"> {"   "}login</Link>
+            <div>
+              <span>Already registered then Do!!! </span>
+              <Link to="/login"> login</Link>
+            </div>
           )}
         </FooterText>
       </UserFormContainer>

@@ -2,25 +2,32 @@ import { observable, action, computed } from "mobx";
 
 import ProductItemModel from "./ProductItemModel";
 import CartItemModel from "./CartItemModel";
-
+import { orderByOptions } from "./components/ShoppingCart/constants";
+import {
+  apiUrls,
+  fetchingProductsStatus,
+  fetchingFailureMessage
+} from "./components/HybridUserForm/constants";
 class AppStore {
-  @observable orderBy = "select";
+  @observable orderBy = orderByOptions[0];
   @observable productList = [];
   @observable cartItemList = [];
   @observable selectedSize = [];
-  @observable failureMessage = "";
-  @observable productsFetchingStatus = "loading";
+  @observable failureMessage = fetchingFailureMessage;
+  @observable productsFetchingStatus = fetchingProductsStatus;
   @observable error = "";
   @observable accessToken = "";
 
   @action buyProductToStore = products => {
-    // products = [];
+    //products = [];
     products.forEach(eachProduct =>
       this.productList.push(new ProductItemModel(eachProduct))
     );
   };
 
   @action.bound async fetchProductsData() {
+    this.productsFetchingStatus = fetchingProductsStatus;
+    this.failureMessage = "";
     const options = {
       method: "POST",
       headers: {
@@ -28,18 +35,19 @@ class AppStore {
         "Content-Type": "application/json"
       }
     };
-    const apiUrl = "https://user-shopping-cart.getsandbox.com/products/v1/";
+    const apiUrl = apiUrls.products;
     try {
-      const result = await fetch(apiUrl, options);
-      if (!result.ok) throw new Error(result.status);
+      let result = await fetch(apiUrl, options);
+      result = await result.json();
+      if (result.error) throw new Error(result.error);
       else {
-        const productsData = await result.json();
+        const productsData = result;
         this.buyProductToStore(productsData.products);
       }
     } catch (error) {
-      this.failureMessage = error.message;
+      this.failureMessage = error;
     }
-    this.productsFetchingStatus = "loadingCompleted";
+    this.productsFetchingStatus = fetchingProductsStatus + "Completed";
   }
 
   @action addSelectedSize = userSelectedSize => {
@@ -80,19 +88,14 @@ class AppStore {
   };
 
   @action.bound async userLogin(body) {
-    const options = {
-      method: "POST",
-      body: JSON.stringify(body),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    };
+    this.accessToken = "";
     try {
       let result = await fetch(
-        "https://user-shopping-cart.getsandbox.com/login/v1/",
-        options
+        apiUrls.userLogin,
+        this.fetchingOptionsForLoginAndSignUp(body)
       );
       result = await result.json();
+      console.log(result);
       if (!result.status) {
         this.error = result.error;
       } else {
@@ -100,11 +103,11 @@ class AppStore {
         this.accessToken = response.accessToken;
       }
     } catch (e) {
-      console.log(e);
+      alert("Error from login Form", e);
     }
   }
 
-  @action userSignUp = body => {
+  fetchingOptionsForLoginAndSignUp = body => {
     const options = {
       method: "POST",
       body: JSON.stringify(body),
@@ -112,7 +115,10 @@ class AppStore {
         "Content-Type": "application/json"
       }
     };
-    fetch("https://user-shopping-cart.getsandbox.com/sign_up/v1/", options)
+    return options;
+  };
+  @action userSignUp = body => {
+    fetch(apiUrls.userSignUp, this.fetchingOptionsForLoginAndSignUp(body))
       .then(res => res.json())
       .then(res =>
         res.error ? (this.error = res.error) : (this.error = res.status)
@@ -129,11 +135,11 @@ class AppStore {
         }
       });
     }
-    if (this.orderBy === "select") {
+    if (this.orderBy === orderByOptions[0]) {
       return this.selectedSize.length === 0
         ? this.productList
         : productsWithSelectedSizes;
-    } else if (this.orderBy === "Highest-To-Lowest") {
+    } else if (this.orderBy === orderByOptions[1]) {
       return this.selectedSize.length === 0
         ? this.productList.sort(function(a, b) {
             return b.price - a.price;

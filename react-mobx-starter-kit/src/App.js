@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-
+import { observer } from "mobx-react";
 // import Counter from './components/Counter'
 // import FilterableProductTable from './components/FilterableProductTable'
 // import Todos from './components/Todos'
 // import todoStore from "./Todos";
 import ShoppingCart from "./components/ShoppingCart";
 // import appStore from "./AppStore";
-import { observer } from "mobx-react";
 import HybridUserForm from "./components/HybridUserForm";
 import appStore from "./AppStore";
 @observer
@@ -27,14 +26,9 @@ class App extends Component {
         <Todos store={ todoStore }/> */}
         <Router>
           <div>
-            {appStore.accessToken.length > 0 ? (
-              <Redirect to="/protected" />
-            ) : (
-              ""
-            )}
-            ;
+            {appStore.accessToken.length > 0 ? <Redirect to="/products" /> : ""}
             <Route
-              path="/protected"
+              path="/products"
               render={() => <ShoppingCart appStore={appStore} />}
             />
             <Route
@@ -44,7 +38,7 @@ class App extends Component {
             />
             <Route
               exact
-              path="/signUp"
+              path="/signup"
               render={() => (
                 <HybridUserForm type={"SIGN-UP"} store={appStore} />
               )}
