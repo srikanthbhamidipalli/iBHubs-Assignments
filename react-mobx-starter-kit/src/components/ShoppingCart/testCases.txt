@@ -1,0 +1,8 @@
+
+ShoppingCart Components TestCases:-
+-Is it calling the fetchProductsData function in componentDidMount method.
+-are the products are added to the productlist.
+-Is it rendering the 4(sizeChart,HeaderInfo,productDisplay,Cart) components properly.
+-Is the styles are applyig for HomeDivision(styled Component).
+
+

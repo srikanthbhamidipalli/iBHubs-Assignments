@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShoppingCart should render correctly in "debug" mode 1`] = `
+<styled.div>
+  <styled.div>
+    <SizeChart
+      appStore={
+        AppStore {
+          "accessToken": "",
+          "cartItemList": Array [],
+          "error": "",
+          "failureMessage": "",
+          "fetchingOptionsForLoginAndSignUp": [Function],
+          "initialProductsFetchingStatus": "loading",
+          "orderBy": "select",
+          "productList": Array [],
+          "selectedSizes": Array [],
+        }
+      }
+    />
+  </styled.div>
+  <styled.div>
+    <HeaderInfo
+      appStore={
+        AppStore {
+          "accessToken": "",
+          "cartItemList": Array [],
+          "error": "",
+          "failureMessage": "",
+          "fetchingOptionsForLoginAndSignUp": [Function],
+          "initialProductsFetchingStatus": "loading",
+          "orderBy": "select",
+          "productList": Array [],
+          "selectedSizes": Array [],
+        }
+      }
+    />
+    <DisplayProducts
+      appStore={
+        AppStore {
+          "accessToken": "",
+          "cartItemList": Array [],
+          "error": "",
+          "failureMessage": "",
+          "fetchingOptionsForLoginAndSignUp": [Function],
+          "initialProductsFetchingStatus": "loading",
+          "orderBy": "select",
+          "productList": Array [],
+          "selectedSizes": Array [],
+        }
+      }
+    />
+  </styled.div>
+  <Cart
+    appStore={
+      AppStore {
+        "accessToken": "",
+        "cartItemList": Array [],
+        "error": "",
+        "failureMessage": "",
+        "fetchingOptionsForLoginAndSignUp": [Function],
+        "initialProductsFetchingStatus": "loading",
+        "orderBy": "select",
+        "productList": Array [],
+        "selectedSizes": Array [],
+      }
+    }
+  />
+</styled.div>
+`;
