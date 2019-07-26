@@ -11,7 +11,7 @@ class HeaderInfo extends Component {
   };
   render() {
     let optionsList = [];
-    orderByOptions.forEach(eachOption =>
+    Object.values(orderByOptions).forEach(eachOption =>
       optionsList.push(
         <Option key={eachOption} value={eachOption}>
           {eachOption}

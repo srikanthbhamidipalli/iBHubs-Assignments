@@ -6,15 +6,16 @@ import { orderByOptions } from "./components/ShoppingCart/constants";
 import {
   apiUrls,
   fetchingProductsStatus,
-  fetchingFailureMessage
+  fetchingSuccessMessage,
+  networkError
 } from "./components/HybridUserForm/constants";
 class AppStore {
-  @observable orderBy = orderByOptions[0];
+  @observable orderBy = orderByOptions.select;
   @observable productList = [];
   @observable cartItemList = [];
-  @observable selectedSize = [];
-  @observable failureMessage = fetchingFailureMessage;
-  @observable productsFetchingStatus = fetchingProductsStatus;
+  @observable selectedSizes = [];
+  @observable failureMessage = "";
+  @observable initialProductsFetchingStatus = "";
   @observable error = "";
   @observable accessToken = "";
 
@@ -26,7 +27,7 @@ class AppStore {
   };
 
   @action.bound async fetchProductsData() {
-    this.productsFetchingStatus = fetchingProductsStatus;
+    this.initialProductsFetchingStatus = fetchingProductsStatus;
     this.failureMessage = "";
     const options = {
       method: "POST",
@@ -47,15 +48,15 @@ class AppStore {
     } catch (error) {
       this.failureMessage = error;
     }
-    this.productsFetchingStatus = fetchingProductsStatus + "Completed";
+    this.initialProductsFetchingStatus = fetchingSuccessMessage;
   }
 
-  @action addSelectedSize = userSelectedSize => {
-    if (!this.selectedSize.includes(userSelectedSize))
-      this.selectedSize.push(userSelectedSize);
+  @action addselectedSizes = userselectedSizes => {
+    if (!this.selectedSizes.includes(userselectedSizes))
+      this.selectedSizes.push(userselectedSizes);
     else
-      this.selectedSize = this.selectedSize.filter(
-        size => size !== userSelectedSize
+      this.selectedSizes = this.selectedSizes.filter(
+        size => size !== userselectedSizes
       );
   };
 
@@ -95,7 +96,6 @@ class AppStore {
         this.fetchingOptionsForLoginAndSignUp(body)
       );
       result = await result.json();
-      console.log(result);
       if (!result.status) {
         this.error = result.error;
       } else {
@@ -103,7 +103,7 @@ class AppStore {
         this.accessToken = response.accessToken;
       }
     } catch (e) {
-      alert("Error from login Form", e);
+      alert(networkError);
     }
   }
 
@@ -126,33 +126,33 @@ class AppStore {
   };
 
   @computed get orderByFilteredProducts() {
-    let productsWithSelectedSizes = [];
-    for (let i = 0; i < this.selectedSize.length; i++) {
+    let productsWithselectedSizess = [];
+    for (let i = 0; i < this.selectedSizes.length; i++) {
       this.productList.forEach(product => {
-        if (product.availableSizes.includes(this.selectedSize[i])) {
-          if (!productsWithSelectedSizes.includes(product))
-            productsWithSelectedSizes.push(product);
+        if (product.availableSizes.includes(this.selectedSizes[i])) {
+          if (!productsWithselectedSizess.includes(product))
+            productsWithselectedSizess.push(product);
         }
       });
     }
-    if (this.orderBy === orderByOptions[0]) {
-      return this.selectedSize.length === 0
+    if (this.orderBy === orderByOptions.select) {
+      return this.selectedSizes.length === 0
         ? this.productList
-        : productsWithSelectedSizes;
-    } else if (this.orderBy === orderByOptions[1]) {
-      return this.selectedSize.length === 0
+        : productsWithselectedSizess;
+    } else if (this.orderBy === orderByOptions.highToLow) {
+      return this.selectedSizes.length === 0
         ? this.productList.sort(function(a, b) {
             return b.price - a.price;
           })
-        : productsWithSelectedSizes.sort(function(a, b) {
+        : productsWithselectedSizess.sort(function(a, b) {
             return b.price - a.price;
           });
     } else {
-      return this.selectedSize.length === 0
+      return this.selectedSizes.length === 0
         ? this.productList.sort(function(a, b) {
             return a.price - b.price;
           })
-        : productsWithSelectedSizes.sort(function(a, b) {
+        : productsWithselectedSizess.sort(function(a, b) {
             return a.price - b.price;
           });
     }

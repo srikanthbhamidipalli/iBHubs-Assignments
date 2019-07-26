@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 
-import { sizesList } from "../constants";
+import { sizesChart } from "../constants";
 import {
   SizesChart,
   SizesAndHeadingText,
@@ -11,18 +11,18 @@ import {
 
 @observer
 class SizeChart extends Component {
-  handleClick = userSelectedSize => {
-    this.props.appStore.addSelectedSize(userSelectedSize);
+  handleClick = userselectedSizes => {
+    this.props.appStore.addselectedSizes(userselectedSizes);
   };
 
   render() {
-    let sizeList = [];
-    sizesList.forEach(eachSize =>
-      sizeList.push(
+    let sizesList = [];
+    Object.values(sizesChart).forEach(eachSize =>
+      sizesList.push(
         <EachSizeItem
           key={eachSize}
           value={eachSize}
-          isThisSelectedSize={this.props.appStore.selectedSize.includes(
+          isThisselectedSizes={this.props.appStore.selectedSizes.includes(
             eachSize
           )}
           onClick={() => this.handleClick(eachSize)}
@@ -36,7 +36,7 @@ class SizeChart extends Component {
         <Division>
           <SizesAndHeadingText>Sizes:</SizesAndHeadingText>
         </Division>
-        <Division>{sizeList}</Division>
+        <Division>{sizesList}</Division>
       </SizesChart>
     );
   }

@@ -16,3 +16,7 @@ export const userVisitedForm = "LOGIN";
 export const fetchingProductsStatus = "loading";
 
 export const fetchingFailureMessage = "";
+
+export const fetchingSuccessMessage = "loading Succeeded";
+
+export const networkError = "Network Error";

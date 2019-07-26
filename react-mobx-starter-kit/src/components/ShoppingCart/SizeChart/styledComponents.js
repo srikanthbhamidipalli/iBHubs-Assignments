@@ -10,9 +10,9 @@ export const SizesAndHeadingText = styled.strong`
 
 export const EachSizeItem = styled.div`
   background-color: ${props =>
-    props.isThisSelectedSize ? "black" : "lightgrey"};
+    props.isThisselectedSizes ? "black" : "lightgrey"};
   border: none;
-  color: ${props => (props.isThisSelectedSize ? "white" : "black")};
+  color: ${props => (props.isThisselectedSizes ? "white" : "black")};
   padding: 20px;
   text-align: center;
   text-decoration: none;
@@ -20,7 +20,7 @@ export const EachSizeItem = styled.div`
   font-size: 11px;
   margin: 4px 2px;
   cursor: pointer;
-  border: 1px solid ${props => (props.isThisSelectedSize ? "black" : "white")};
+  border: 1px solid ${props => (props.isThisselectedSizes ? "black" : "white")};
   height: 15px;
   width: 15px;
   border-radius: 30px;

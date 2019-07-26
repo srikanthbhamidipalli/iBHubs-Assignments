@@ -9,7 +9,7 @@
 	-@ction-incQuantity
 
 3)Implementing Store:-15min--DONE
-	-observables-OrderBy,productList,CartItemList,SelectedSize(array)
+	-observables-OrderBy,productList,CartItemList,selectedSizes(array)
 	-@ctions-buyProductToStore(instance),AddProducttoCart(id),RemoveProductFromCart
 	-computed-orderByFilteredProducts,subTotalAmount
 

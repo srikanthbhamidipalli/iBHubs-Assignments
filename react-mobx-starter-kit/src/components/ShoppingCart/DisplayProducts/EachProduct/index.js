@@ -12,34 +12,36 @@ import {
   AddToCart,
   AddToCartText
 } from "./styledComponents";
+import { orderByOptions, alertMessageForSizeSelection } from "../../constants";
 
 @observer
 class EachProduct extends Component {
-  @observable selectedSize = "select";
-  handleClick = productId => {
-    this.selectedSize === "select"
-      ? alert("select Your Size")
-      : this.props.addProductToCart(productId, this.selectedSize);
+  @observable selectedSize = orderByOptions.select;
+  handleClick = () => {
+    this.selectedSize === orderByOptions.select
+      ? alert(alertMessageForSizeSelection)
+      : this.props.addProductToCart(this.props.eachItem.id, this.selectedSize);
   };
 
   handleSizeClick = e => {
     this.selectedSize = e.target.value;
   };
   render() {
+    const { eachItem } = this.props;
     let selectSizeList = [];
     const select = (
-      <option key="select" value="select">
+      <option key={orderByOptions.select} value={orderByOptions.select}>
         select Size
       </option>
     );
     selectSizeList.push(select);
-    for (let i = 0; i < this.props.eachItem.availableSizes.length; i++) {
+    for (let i = 0; i < eachItem.availableSizes.length; i++) {
       const eachSize = (
         <option
-          key={this.props.eachItem.availableSizes[i]}
-          value={this.props.eachItem.availableSizes[i]}
+          key={eachItem.availableSizes[i]}
+          value={eachItem.availableSizes[i]}
         >
-          {this.props.eachItem.availableSizes[i]}
+          {eachItem.availableSizes[i]}
         </option>
       );
       selectSizeList.push(eachSize);
@@ -47,34 +49,30 @@ class EachProduct extends Component {
     return (
       <EachProductDivision>
         <ProductImage>
-          <img src={this.props.eachItem.image} alt="productImage" />
-          {this.props.eachItem.isFreeShipping ? (
+          <img src={eachItem.image} alt="productImage" />
+          {eachItem.isFreeShipping ? (
             <FreeShippingLabel>
               <FreeShippingText>Free Shipping</FreeShippingText>
             </FreeShippingLabel>
-          ) : (
-            ""
-          )}
+          ) : null}
         </ProductImage>
         <br />
-        <div>{this.props.eachItem.title}</div>
+        <div>{eachItem.title}</div>
         <br />
         <ColouredDash />
         <br />
         <SizeSelector>
           <select onClick={this.handleSizeClick}>{selectSizeList}</select>
         </SizeSelector>
-        <div>${this.props.eachItem.price}</div>
+        <div>${eachItem.price}</div>
         <div>
           or{" "}
-          {this.props.eachItem.installments +
+          {eachItem.installments +
             " *" +
-            (
-              this.props.eachItem.price / this.props.eachItem.installments
-            ).toFixed(2)}
+            (eachItem.price / eachItem.installments).toFixed(2)}
         </div>
         <br />
-        <AddToCart onClick={() => this.handleClick(this.props.eachItem.id)}>
+        <AddToCart onClick={this.handleClick}>
           <AddToCartText>Add to Cart</AddToCartText>
         </AddToCart>
       </EachProductDivision>

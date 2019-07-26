@@ -3,22 +3,20 @@ import { observer } from "mobx-react";
 
 import EachProduct from "./EachProduct";
 import { AllProductsContainer, PageStatus } from "./styledComponents";
-import {
-  fetchingProductsStatus,
-  fetchingFailureMessage
-} from "../../HybridUserForm/constants";
+import { fetchingProductsStatus } from "../../HybridUserForm/constants";
 
 @observer
 class DisplayProducts extends Component {
   render() {
-    if (this.props.appStore.failureMessage !== fetchingFailureMessage) {
+    if (this.props.appStore.failureMessage !== "") {
       return (
         <PageStatus className="page-status">
           <h1>Something Went Wrong!!!!</h1>
         </PageStatus>
       );
     } else if (
-      this.props.appStore.productsFetchingStatus === fetchingProductsStatus
+      this.props.appStore.initialProductsFetchingStatus ===
+      fetchingProductsStatus
     ) {
       return (
         <PageStatus className="page-status">
@@ -27,7 +25,7 @@ class DisplayProducts extends Component {
       );
     } else if (
       this.props.appStore.productList.length === 0 &&
-      this.props.appStore.failureMessage === fetchingFailureMessage
+      this.props.appStore.failureMessage === ""
     ) {
       return (
         <PageStatus className="page-status">
