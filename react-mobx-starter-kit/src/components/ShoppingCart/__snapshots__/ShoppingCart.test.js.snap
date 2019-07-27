@@ -1,5 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ShoppingCart Is the styles are applyig for HomeDivision(styled Component)? 1`] = `
+<StyledComponent
+  forwardedComponent={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-iRbamj",
+        "isStatic": true,
+        "lastClassName": "estCfa",
+        "rules": Array [
+          "
+  display: flex;
+  flex-direction: row;
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "sc-iRbamj",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+/>
+`;
+
 exports[`ShoppingCart should render correctly in "debug" mode 1`] = `
 <styled.div>
   <styled.div>
@@ -13,7 +44,25 @@ exports[`ShoppingCart should render correctly in "debug" mode 1`] = `
           "fetchingOptionsForLoginAndSignUp": [Function],
           "initialProductsFetchingStatus": "loading",
           "orderBy": "select",
-          "productList": Array [],
+          "productList": Array [
+            Object {
+              "availableSizes": Array [
+                "S",
+                "XS",
+              ],
+              "currencyFormat": "$",
+              "currencyId": "USD",
+              "description": "4 MSL",
+              "id": 12,
+              "image": "https://react-shopping-cart-67954.firebaseapp.com/static/media/12064273040195392_1.2995d79a.jpg",
+              "installments": 9,
+              "isFreeShipping": true,
+              "price": 10.9,
+              "sku": 12064273040195392,
+              "style": "Black with custom print",
+              "title": "Cat Tee Black T-Shirt",
+            },
+          ],
           "selectedSizes": Array [],
         }
       }
@@ -30,7 +79,25 @@ exports[`ShoppingCart should render correctly in "debug" mode 1`] = `
           "fetchingOptionsForLoginAndSignUp": [Function],
           "initialProductsFetchingStatus": "loading",
           "orderBy": "select",
-          "productList": Array [],
+          "productList": Array [
+            Object {
+              "availableSizes": Array [
+                "S",
+                "XS",
+              ],
+              "currencyFormat": "$",
+              "currencyId": "USD",
+              "description": "4 MSL",
+              "id": 12,
+              "image": "https://react-shopping-cart-67954.firebaseapp.com/static/media/12064273040195392_1.2995d79a.jpg",
+              "installments": 9,
+              "isFreeShipping": true,
+              "price": 10.9,
+              "sku": 12064273040195392,
+              "style": "Black with custom print",
+              "title": "Cat Tee Black T-Shirt",
+            },
+          ],
           "selectedSizes": Array [],
         }
       }
@@ -45,7 +112,25 @@ exports[`ShoppingCart should render correctly in "debug" mode 1`] = `
           "fetchingOptionsForLoginAndSignUp": [Function],
           "initialProductsFetchingStatus": "loading",
           "orderBy": "select",
-          "productList": Array [],
+          "productList": Array [
+            Object {
+              "availableSizes": Array [
+                "S",
+                "XS",
+              ],
+              "currencyFormat": "$",
+              "currencyId": "USD",
+              "description": "4 MSL",
+              "id": 12,
+              "image": "https://react-shopping-cart-67954.firebaseapp.com/static/media/12064273040195392_1.2995d79a.jpg",
+              "installments": 9,
+              "isFreeShipping": true,
+              "price": 10.9,
+              "sku": 12064273040195392,
+              "style": "Black with custom print",
+              "title": "Cat Tee Black T-Shirt",
+            },
+          ],
           "selectedSizes": Array [],
         }
       }
@@ -61,7 +146,25 @@ exports[`ShoppingCart should render correctly in "debug" mode 1`] = `
         "fetchingOptionsForLoginAndSignUp": [Function],
         "initialProductsFetchingStatus": "loading",
         "orderBy": "select",
-        "productList": Array [],
+        "productList": Array [
+          Object {
+            "availableSizes": Array [
+              "S",
+              "XS",
+            ],
+            "currencyFormat": "$",
+            "currencyId": "USD",
+            "description": "4 MSL",
+            "id": 12,
+            "image": "https://react-shopping-cart-67954.firebaseapp.com/static/media/12064273040195392_1.2995d79a.jpg",
+            "installments": 9,
+            "isFreeShipping": true,
+            "price": 10.9,
+            "sku": 12064273040195392,
+            "style": "Black with custom print",
+            "title": "Cat Tee Black T-Shirt",
+          },
+        ],
         "selectedSizes": Array [],
       }
     }

@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot testing  1`] = `
+<styled.div>
+  <styled.div>
+    <img
+      alt="productImage"
+      src="https://react-shopping-cart-67954.firebaseapp.com/static/media/12064273040195392_1.2995d79a.jpg"
+    />
+    <styled.div>
+      <styled.span>
+        Free Shipping
+      </styled.span>
+    </styled.div>
+  </styled.div>
+  <br />
+  <div>
+    Cat Tee Black T-Shirt
+  </div>
+  <br />
+  <styled.div />
+  <br />
+  <styled.div>
+    <select
+      id="select-list"
+      onClick={[Function]}
+    >
+      <option
+        key="select"
+        value="select"
+      >
+        select Size
+      </option>
+      <option
+        key="S"
+        value="S"
+      >
+        S
+      </option>
+      <option
+        key="XS"
+        value="XS"
+      >
+        XS
+      </option>
+    </select>
+  </styled.div>
+  <div
+    id="price"
+  >
+    $
+    10.9
+  </div>
+  <div>
+    or
+     
+    9 *1.21
+  </div>
+  <br />
+  <styled.div
+    onClick={[Function]}
+  >
+    <styled.span>
+      Add to Cart
+    </styled.span>
+  </styled.div>
+</styled.div>
+`;

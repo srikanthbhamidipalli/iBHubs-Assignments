@@ -8,7 +8,7 @@ import { observer } from "mobx-react";
 import ShoppingCart from "./components/ShoppingCart";
 // import appStore from "./AppStore";
 import HybridUserForm from "./components/HybridUserForm";
-import appStore from "./AppStore";
+import { appStore } from "./AppStore";
 @observer
 class App extends Component {
   render() {

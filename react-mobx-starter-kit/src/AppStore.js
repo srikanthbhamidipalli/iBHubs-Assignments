@@ -60,7 +60,7 @@ class AppStore {
       );
   };
 
-  @action addProductToCart = (productId, selectedCartItemSize) => {
+  @action.bound addProductToCart(productId, selectedCartItemSize) {
     let isAdded = this.cartItemList.find(
       item => item.productId === productId && item.size === selectedCartItemSize
     );
@@ -71,7 +71,7 @@ class AppStore {
         new CartItemModel(productId, selectedCartItemSize)
       );
     }
-  };
+  }
 
   @action removeProductFromCart = productId => {
     this.cartItemList = this.cartItemList.filter(id => id !== productId);
@@ -96,9 +96,11 @@ class AppStore {
         this.fetchingOptionsForLoginAndSignUp(body)
       );
       result = await result.json();
+      console.log(result);
       if (!result.status) {
         this.error = result.error;
       } else {
+        alert("in else");
         const response = await result;
         this.accessToken = response.accessToken;
       }
@@ -175,6 +177,5 @@ class AppStore {
     return totalLength;
   }
 }
-const appStore = new AppStore();
-
-export default appStore;
+export const appStore = new AppStore();
+export default AppStore;

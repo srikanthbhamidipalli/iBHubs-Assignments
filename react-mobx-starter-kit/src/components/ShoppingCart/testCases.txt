@@ -4,6 +4,9 @@ ShoppingCart Component TestCases:-
 	-are the products are added to the productlist.
 	-Is it rendering the 4(sizeChart,HeaderInfo,productDisplay,Cart) components properly.
 	-Is the styles are applyig for HomeDivision(styled Component).
+	-should show Loading message
+	-should show something went wrong on page error.
+	-Should show products empty message if no products
 
 SizeChart component TestCases:-
 	-Is it rendering EachItemSize component.

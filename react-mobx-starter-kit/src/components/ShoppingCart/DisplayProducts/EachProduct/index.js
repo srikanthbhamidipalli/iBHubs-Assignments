@@ -62,7 +62,9 @@ class EachProduct extends Component {
         <ColouredDash />
         <br />
         <SizeSelector>
-          <select onClick={this.handleSizeClick}>{selectSizeList}</select>
+          <select onClick={this.handleSizeClick} id="select-list">
+            {selectSizeList}
+          </select>
         </SizeSelector>
         <div id="price">${eachItem.price}</div>
         <div>
