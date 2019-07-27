@@ -18,7 +18,6 @@ class AppStore {
   @observable initialProductsFetchingStatus = "";
   @observable error = "";
   @observable accessToken = "";
-
   @action buyProductToStore = products => {
     //products = [];
     products.forEach(eachProduct =>
@@ -27,6 +26,7 @@ class AppStore {
   };
 
   @action.bound async fetchProductsData() {
+    //console.log("from store", this.initialProductsFetchingStatus);
     this.initialProductsFetchingStatus = fetchingProductsStatus;
     this.failureMessage = "";
     const options = {
@@ -48,7 +48,7 @@ class AppStore {
     } catch (error) {
       this.failureMessage = error;
     }
-    this.initialProductsFetchingStatus = fetchingSuccessMessage;
+    this.initialProductsFetchingStatus = "";
   }
 
   @action addselectedSizes = userselectedSizes => {
@@ -177,5 +177,6 @@ class AppStore {
     return totalLength;
   }
 }
+
 export const appStore = new AppStore();
 export default AppStore;

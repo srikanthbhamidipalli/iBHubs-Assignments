@@ -53,8 +53,4 @@ describe("ShoppingCart", () => {
     const component = shallow(<HomeDivision />);
     expect(component).toMatchSnapshot();
   });
-  it("should ", () => {
-    storeObj.initialProductsFetchingStatus = "loading";
-    const component = shallow(<ShoppingCart appStore={storeObj} />);
-  });
 });
