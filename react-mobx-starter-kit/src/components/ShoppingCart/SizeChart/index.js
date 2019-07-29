@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 
-import { sizesChart } from "../constants";
+//import { sizesChart } from "../constants";
 import {
   SizesChart,
   SizesAndHeadingText,
@@ -17,7 +17,7 @@ class SizeChart extends Component {
 
   render() {
     let sizesList = [];
-    Object.values(sizesChart).forEach(eachSize =>
+    Object.values(this.props.sizesChart).forEach(eachSize =>
       sizesList.push(
         <EachSizeItem
           key={eachSize}

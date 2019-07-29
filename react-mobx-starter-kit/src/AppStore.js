@@ -131,25 +131,25 @@ class AppStore {
   };
 
   @computed get orderByFilteredProducts() {
-    let productsWithselectedSizess = [];
+    let productsWithselectedSizes = [];
     for (let i = 0; i < this.selectedSizes.length; i++) {
       this.productList.forEach(product => {
         if (product.availableSizes.includes(this.selectedSizes[i])) {
-          if (!productsWithselectedSizess.includes(product))
-            productsWithselectedSizess.push(product);
+          if (!productsWithselectedSizes.includes(product))
+            productsWithselectedSizes.push(product);
         }
       });
     }
     if (this.orderBy === orderByOptions.select) {
       return this.selectedSizes.length === 0
         ? this.productList
-        : productsWithselectedSizess;
+        : productsWithselectedSizes;
     } else if (this.orderBy === orderByOptions.highToLow) {
       return this.selectedSizes.length === 0
         ? this.productList.sort(function(a, b) {
             return b.price - a.price;
           })
-        : productsWithselectedSizess.sort(function(a, b) {
+        : productsWithselectedSizes.sort(function(a, b) {
             return b.price - a.price;
           });
     } else {
@@ -157,7 +157,7 @@ class AppStore {
         ? this.productList.sort(function(a, b) {
             return a.price - b.price;
           })
-        : productsWithselectedSizess.sort(function(a, b) {
+        : productsWithselectedSizes.sort(function(a, b) {
             return a.price - b.price;
           });
     }

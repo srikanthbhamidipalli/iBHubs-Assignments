@@ -66,6 +66,17 @@ exports[`ShoppingCart should render correctly in "debug" mode 1`] = `
           "selectedSizes": Array [],
         }
       }
+      sizesChart={
+        Object {
+          "l": "L",
+          "m": "M",
+          "ml": "ML",
+          "s": "S",
+          "xl": "XL",
+          "xs": "XS",
+          "xxl": "XXL",
+        }
+      }
     />
   </styled.div>
   <styled.div>

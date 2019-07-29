@@ -6,6 +6,7 @@ import HeaderInfo from "./HeaderInfo";
 import DisplayProducts from "./DisplayProducts";
 import Cart from "./Cart";
 import { HomeDivision, Division } from "./styledComponents";
+import { sizesChart } from "./constants";
 
 @observer
 class ShoppingCart extends React.Component {
@@ -16,7 +17,7 @@ class ShoppingCart extends React.Component {
     return (
       <HomeDivision>
         <Division>
-          <SizeChart appStore={this.props.appStore} />
+          <SizeChart appStore={this.props.appStore} sizesChart={sizesChart} />
         </Division>
         <Division>
           <HeaderInfo appStore={this.props.appStore} />

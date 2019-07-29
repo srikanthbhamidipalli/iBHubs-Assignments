@@ -8,7 +8,7 @@ ShoppingCart Component TestCases:- --DONE
 	-should show something went wrong on page error.
 	-Should show products empty message if no products
 
-SizeChart component TestCases:- 
+SizeChart component TestCases:- 		11:15-11:45
 	-Is it rendering EachItemSize component.
 	-Is it handling onClick event.
 	-Is the styles are applying for Sizes.
@@ -33,7 +33,7 @@ EachProduct component TestCases:-  --DONE
 
 
 AppStore TestCases:- 9:30-10AM(to write testcases)
-
+	-is all the observables initialised with the given values?(13:01-13:11)
 	-action buyProductsToStore:- Are the products adding to the product list?
 	-action addSelectedSizes :- is the user selected sizes are adding to the sizes list?, is already selected size is removing from the sizesList?
 	-action addProductToCart:- is the new product is adding to cartList?,
@@ -42,6 +42,10 @@ AppStore TestCases:- 9:30-10AM(to write testcases)
 				    Are the cartListLength and subTotalAmount updated?
 	-action deleteCartItem:- is it removing the product with same ID and size  from cart
 	-action setOrderByValue:- is it setting up the orderBy Value?
+	-selectedSizes(empty)-OrderByValue(select)
+	-selectedSizes(empty)-OrderByValue(high-to-low) and selectedSizes( not empty)-OrderByValue(high-to-low) 
+	-selectedSizes(empty)-OrderByValue(low-to-high) and selectedSizes(not empty)-OrderByValue(low-to-high)
+	-selectedSizes(not empty) productslistLength
 	-Is the orderByFilteredProducts returning the correct productsList based on the orderBy value?
  
 

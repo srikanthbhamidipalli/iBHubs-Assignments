@@ -7,6 +7,7 @@ import { HomeDivision } from "./styledComponents";
 import HeaderInfo from "./HeaderInfo";
 import DisplayProducts from "./DisplayProducts";
 import Cart from "./Cart";
+
 const storeObj = new AppStore();
 storeObj.productList.push({
   availableSizes: ["S", "XS"],

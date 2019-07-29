@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "jest-styled-components": "^6.3.3"
+  }
+}

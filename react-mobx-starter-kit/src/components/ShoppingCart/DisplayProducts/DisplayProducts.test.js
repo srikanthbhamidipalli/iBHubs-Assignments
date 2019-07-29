@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow, mount, render } from "enzyme";
+import { mount } from "enzyme";
 import DisplayProducts from "./index";
 import AppStore from "../../../AppStore";
 
