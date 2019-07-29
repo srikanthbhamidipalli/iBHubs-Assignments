@@ -2,9 +2,14 @@ import React from "react";
 import { mount } from "enzyme";
 import DisplayProducts from "./index";
 import AppStore from "../../../AppStore";
+import EachProduct from "./EachProduct";
 
 const newObj = new AppStore();
 describe("<DisplayProducts/>", () => {
+  it("Is it rendering EachProduct component.", () => {
+    const component = mount(<DisplayProducts appStore={newObj} />);
+    expect(component.find(EachProduct)).toBeTruthy();
+  });
   it("should show Loading message", () => {
     const component = mount(<DisplayProducts appStore={newObj} />);
     newObj.initialProductsFetchingStatus = "loading";
