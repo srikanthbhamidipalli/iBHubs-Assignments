@@ -20,7 +20,7 @@ describe("<DisplayProducts/>", () => {
     expect(component.find("h1").text()).toEqual("Something Went Wrong!!!!");
   });
 
-  it("should ", () => {
+  it("should show products empty message if no products found", () => {
     //newObj.initialProductsFetchingStatus = "";
     const component = mount(<DisplayProducts appStore={newObj} />);
     newObj.productList = [];

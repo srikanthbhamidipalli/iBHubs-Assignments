@@ -6,7 +6,6 @@ import { orderByOptions } from "./components/ShoppingCart/constants";
 import {
   apiUrls,
   fetchingProductsStatus,
-  fetchingSuccessMessage,
   networkError
 } from "./components/HybridUserForm/constants";
 class AppStore {
@@ -18,6 +17,11 @@ class AppStore {
   @observable initialProductsFetchingStatus = "";
   @observable error = "";
   @observable accessToken = "";
+
+  //TODO: Change addSelectedSizes name
+  //TODO: set addProductToCart and deleteCartItem names properly
+  //TODO: Set scroll for cartItems container and hide the down scroll bar.
+  //TODO: Create AuthStore(signin,signup),ProductStore(product related info),CartStore(Cart info).
   @action buyProductToStore = products => {
     //products = [];
     products.forEach(eachProduct =>
@@ -26,7 +30,6 @@ class AppStore {
   };
 
   @action.bound async fetchProductsData() {
-    //console.log("from store", this.initialProductsFetchingStatus);
     this.initialProductsFetchingStatus = fetchingProductsStatus;
     this.failureMessage = "";
     const options = {
@@ -73,9 +76,9 @@ class AppStore {
     }
   }
 
-  @action removeProductFromCart = productId => {
-    this.cartItemList = this.cartItemList.filter(id => id !== productId);
-  };
+  // @action removeProductFromCart = productId => {
+  //   this.cartItemList = this.cartItemList.filter(id => id !== productId);
+  // };
 
   @action setOrderByValue = newValue => {
     this.orderBy = newValue;
@@ -96,11 +99,10 @@ class AppStore {
         this.fetchingOptionsForLoginAndSignUp(body)
       );
       result = await result.json();
-      console.log(result);
+      //console.log(result);
       if (!result.status) {
         this.error = result.error;
       } else {
-        alert("in else");
         const response = await result;
         this.accessToken = response.accessToken;
       }
@@ -119,6 +121,7 @@ class AppStore {
     };
     return options;
   };
+
   @action userSignUp = body => {
     fetch(apiUrls.userSignUp, this.fetchingOptionsForLoginAndSignUp(body))
       .then(res => res.json())

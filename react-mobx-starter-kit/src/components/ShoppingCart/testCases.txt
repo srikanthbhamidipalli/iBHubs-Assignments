@@ -1,5 +1,5 @@
 
-ShoppingCart Component TestCases:-
+ShoppingCart Component TestCases:- --DONE
 	-Is it calling the fetchProductsData function in componentDidMount method.
 	-are the products are added to the productlist.
 	-Is it rendering the 4(sizeChart,HeaderInfo,productDisplay,Cart) components properly.
@@ -8,24 +8,23 @@ ShoppingCart Component TestCases:-
 	-should show something went wrong on page error.
 	-Should show products empty message if no products
 
-SizeChart component TestCases:-
+SizeChart component TestCases:- 
 	-Is it rendering EachItemSize component.
 	-Is it handling onClick event.
-	-Are the selected sizes are adding to the selectedSizes list.
 	-Is the styles are applying for Sizes.
 
 HeaderInfo component TestCases:-
 	-is it printing the products count properly.
-	-is the orderBy filter is working fine or not.
+	-is orderBy Value setting or not? 
 
-DisplayProducts component TestCases:-
+DisplayProducts component TestCases:- --DONE
 	-Is it rendering EachProduct component.
 	-is the loading text is displaying.
 	-are the products displaying in the page.
 	-if error it will display Something went wrong message.
 	-is the correct message printing for empty products.
 
-EachProduct component TestCases:-
+EachProduct component TestCases:-  --DONE
 	-Is it loading all the required properties of every product.
 	-is it handling handleSizeClick for selecting Size for particular product.
 	-is it handling handleClick for Add to cart for particular product.
@@ -33,7 +32,17 @@ EachProduct component TestCases:-
 	-is the cart items count updating.
 
 
+AppStore TestCases:- 9:30-10AM(to write testcases)
 
+	-action buyProductsToStore:- Are the products adding to the product list?
+	-action addSelectedSizes :- is the user selected sizes are adding to the sizes list?, is already selected size is removing from the sizesList?
+	-action addProductToCart:- is the new product is adding to cartList?,
+				   is the quantity increased when old product is added again(product with same size and same id)?,
+				   is the product with same Id and different size must be a new product?,
+				    Are the cartListLength and subTotalAmount updated?
+	-action deleteCartItem:- is it removing the product with same ID and size  from cart
+	-action setOrderByValue:- is it setting up the orderBy Value?
+	-Is the orderByFilteredProducts returning the correct productsList based on the orderBy value?
  
 
 
