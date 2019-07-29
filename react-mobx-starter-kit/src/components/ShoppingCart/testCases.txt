@@ -34,7 +34,7 @@ EachProduct component TestCases:-  --DONE
 
 AppStore TestCases:- 9:30-10AM(to write testcases)
 	-is all the observables initialised with the given values?(13:01-13:11)
-	-action buyProductsToStore:- Are the products adding to the product list?
+	-action buyProductsToStore:- Are the products adding to the product list?(13:11-13:30)
 	-action addSelectedSizes :- is the user selected sizes are adding to the sizes list?, is already selected size is removing from the sizesList?
 	-action addProductToCart:- is the new product is adding to cartList?,
 				   is the quantity increased when old product is added again(product with same size and same id)?,

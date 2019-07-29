@@ -23,7 +23,7 @@ class HeaderInfo extends Component {
     );
     return (
       <HeaderContent>
-        <Span>
+        <Span id="products-count">
           {this.props.appStore.orderByFilteredProducts.length} Product(s) found
         </Span>
         <Span>Order By {orderByOptionsList}</Span>
