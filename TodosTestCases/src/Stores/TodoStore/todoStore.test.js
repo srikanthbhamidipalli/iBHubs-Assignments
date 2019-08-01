@@ -14,6 +14,7 @@ describe("TodoStore test cases", () => {
       description: "Hello world",
       isCompleted: false
     };
-    expect(eachTodo.addTodo(todoItem));
+    eachTodo.addTodo(todoItem);
+    expect(eachTodo.todoList.length).toBe(1);
   });
 });
