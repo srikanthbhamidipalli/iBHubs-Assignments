@@ -1,8 +1,11 @@
 import TodoStore from "./index";
 
 describe("TodoStore test cases", () => {
-  it("should test for adding a todo into todoslist", () => {
-    const eachTodo = new TodoStore();
+  let eachTodo;
+  beforeEach(() => {
+    eachTodo = new TodoStore();
+  });
+  it("should test for todoslist length for zero", () => {
     expect(eachTodo.todoList.length).toEqual(0);
   });
 });
