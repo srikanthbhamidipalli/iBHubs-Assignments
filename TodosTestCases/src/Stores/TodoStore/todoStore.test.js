@@ -9,13 +9,10 @@ describe("TodoStore test cases", () => {
     expect(eachTodo.todoList.length).toEqual(0);
   });
   it("should test for addTodo functionality", () => {
-    const todoItem = {
-      id: Date.now(),
-      description: "Hello world",
-      isCompleted: false
-    };
-    eachTodo.addTodo(todoItem.description);
+    const description = "Hello world";
+
+    eachTodo.addTodo(description);
     expect(eachTodo.todoList.length).toBe(1);
-    expect(eachTodo.todoList[0].description).toBe("Hello world");
+    expect(eachTodo.todoList[0].description).toBe(description);
   });
 });

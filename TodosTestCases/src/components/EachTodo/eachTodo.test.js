@@ -11,7 +11,8 @@ describe("EnterTodo component testcases", () => {
     const { getByPlaceholderText } = render(<EachTodo todoStore={todoStore} />);
     const inputTextBox = getByPlaceholderText("What needs to be done");
     expect(inputTextBox).toBeDefined();
-    const changeEvent = { target: { value: "Learn Todos App" } };
+    const todoDesc = "Learn Todos App";
+    const changeEvent = { target: { value: todoDesc } };
     fireEvent.change(inputTextBox, changeEvent);
     const keyDownEvent = {
       key: "Enter",
@@ -19,6 +20,6 @@ describe("EnterTodo component testcases", () => {
       code: 13
     };
     fireEvent.keyDown(inputTextBox, keyDownEvent);
-    expect(todoStore.addTodo).toBeCalledWith("Learn Todos App");
+    expect(todoStore.addTodo).toBeCalledWith(todoDesc);
   });
 });
