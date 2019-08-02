@@ -7,5 +7,6 @@ class TodoStore {
     this.todoList.push(todoItem);
   }
 }
+export const todoStore = new TodoStore();
 
 export default TodoStore;
