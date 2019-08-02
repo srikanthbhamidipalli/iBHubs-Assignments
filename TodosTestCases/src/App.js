@@ -6,7 +6,11 @@ function App() {
   const todoStore = new TodoStore();
   return (
     <div className="App">
-      <EnterTodo todoStore={todoStore} />
+      <EnterTodo
+        todoStore={todoStore}
+        inputText={""}
+        onPressEnterKey={todoStore.addTodo}
+      />
       <DisplayTodos todoStore={todoStore} />
     </div>
   );

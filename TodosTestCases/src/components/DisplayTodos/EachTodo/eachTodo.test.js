@@ -1,6 +1,6 @@
 import EachTodo from ".";
 import React from "react";
-import { render, fireEvent, cleanup } from "@testing-library/react";
+import { render, fireEvent, cleanup, getByText } from "@testing-library/react";
 import TodoModel from "../../../Models/TodoModel";
 import TodoStore from "../../../Stores/TodoStore";
 describe("EachTodo component test cases", () => {
@@ -25,5 +25,13 @@ describe("EachTodo component test cases", () => {
     const crossmark = getByTestId("crossmark");
     fireEvent.click(crossmark);
     expect(todoStore.removeTodo).toBeCalledWith(todoItem.id);
+  });
+  it("should check if the todo description is updating or not", () => {
+    const todoStore = new TodoStore();
+    const { getByTestId } = render(
+      <EachTodo todoItem={todoItem} todoStore={todoStore} />
+    );
+    const enterTodoComponent = getByTestId("enter-todo-component");
+    expect(enterTodoComponent).toBeDefined();
   });
 });

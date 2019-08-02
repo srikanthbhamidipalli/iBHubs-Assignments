@@ -4,14 +4,14 @@ import { observer } from "mobx-react";
 
 @observer
 class EnterTodo extends Component {
-  @observable inputText = "";
+  @observable inputText = this.props.inputText;
 
   handleChangeEvent = e => {
     this.inputText = e.target.value;
   };
   handleKeyDownEvent = e => {
     if (e.keyCode === 13) {
-      this.props.todoStore.addTodo(this.inputText);
+      this.props.onPressEnterKey(this.inputText);
       this.inputText = "";
     }
   };

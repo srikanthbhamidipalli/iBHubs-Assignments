@@ -2,6 +2,7 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import EnterTodo from "./index";
 import TodoStore from "../../Stores/TodoStore";
+import TodoModel from "../../Models/TodoModel";
 
 describe("EnterTodo component testcases", () => {
   const todoStore = new TodoStore();
@@ -9,7 +10,11 @@ describe("EnterTodo component testcases", () => {
     // todoStore.addTodo = jest.fn();
     jest.spyOn(todoStore, "addTodo");
     const { getByPlaceholderText } = render(
-      <EnterTodo todoStore={todoStore} />
+      <EnterTodo
+        todoStore={todoStore}
+        inputText={""}
+        onPressEnterKey={todoStore.addTodo}
+      />
     );
     const inputTextBox = getByPlaceholderText("What needs to be done");
     expect(inputTextBox).toBeDefined();
