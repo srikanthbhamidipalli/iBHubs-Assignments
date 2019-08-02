@@ -15,4 +15,8 @@ describe("TodoStore test cases", () => {
     expect(eachTodo.todoList.length).toBe(1);
     expect(eachTodo.todoList[0].description).toBe(description);
   });
+  it("should test for remove todo from todolist", () => {
+    const description = "Hello world";
+    eachTodo.removeTodo(description);
+  });
 });

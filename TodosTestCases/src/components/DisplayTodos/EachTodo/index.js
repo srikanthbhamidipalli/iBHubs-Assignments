@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
+import { TodoDescription } from "./styledComponents";
 
 @observer
 class EachTodo extends Component {
-  handleCheckBoxClick = () => {
+  handleCheckBoxChange = () => {
     this.props.todoItem.toggleCompletedStatus();
   };
   render() {
@@ -12,10 +13,12 @@ class EachTodo extends Component {
         <input
           type="checkbox"
           checked={this.props.todoItem.isCompleted}
-          onClick={this.handleCheckBoxClick}
+          onChange={this.handleCheckBoxChange}
           data-testid="inputBox"
         />
-        <span>{this.props.todoItem.description}</span>
+        <TodoDescription isCompleted={this.props.todoItem.isCompleted}>
+          {this.props.todoItem.description}
+        </TodoDescription>
         <span>x</span>
       </div>
     );

@@ -1,7 +1,7 @@
 import { observable } from "mobx";
 
 class TodoModel {
-  @observable iscompleted = false;
+  @observable isCompleted;
   constructor(desc) {
     this.description = desc;
     this.id = Date.now();
