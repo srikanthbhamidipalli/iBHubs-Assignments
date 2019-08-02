@@ -12,7 +12,8 @@ class EachTodo extends Component {
         <input
           type="checkbox"
           checked={this.props.todoItem.isCompleted}
-          onChange={this.handleCheckBoxClick}
+          onClick={this.handleCheckBoxClick}
+          data-testid="inputBox"
         />
         <span>{this.props.todoItem.description}</span>
         <span>x</span>

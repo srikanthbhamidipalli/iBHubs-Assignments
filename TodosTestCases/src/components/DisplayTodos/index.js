@@ -7,7 +7,7 @@ class DisplayTodos extends Component {
   render() {
     const todoList = this.props.todoStore.todoList.map(todoItem => (
       <div>
-        <EachTodo key={Date.now()} todoItem={todoItem} />
+        <EachTodo key={todoItem.id} todoItem={todoItem} />
       </div>
     ));
     return <div data-testid="eachTodo">{todoList}</div>;
