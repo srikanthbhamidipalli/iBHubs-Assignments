@@ -7,6 +7,9 @@ class EachTodo extends Component {
   handleCheckBoxChange = () => {
     this.props.todoItem.toggleCompletedStatus();
   };
+  handleDeleteIconClick = () => {
+    this.props.todoItem.removeTodo(this.props.todoItem.id);
+  };
   render() {
     return (
       <div>
@@ -19,7 +22,7 @@ class EachTodo extends Component {
         <TodoDescription isCompleted={this.props.todoItem.isCompleted}>
           {this.props.todoItem.description}
         </TodoDescription>
-        <span>x</span>
+        <span onClick={this.handleDeleteIconClick}>x</span>
       </div>
     );
   }

@@ -17,8 +17,9 @@ describe("TodoStore test cases", () => {
   });
   it("should test for remove todo from todolist", () => {
     const description = "Hello world";
+    const todoId = eachTodo.addTodo(description);
     jest.spyOn(eachTodo, "removeTodo");
-    eachTodo.removeTodo(description);
-    expect(eachTodo.removeTodo).toBeCalled();
+    eachTodo.removeTodo(todoId);
+    expect(eachTodo.removeTodo).toBeCalledWith(todoId);
   });
 });
