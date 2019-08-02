@@ -12,8 +12,8 @@ class EnterTodo extends Component {
   handleKeyDownEvent = e => {
     if (e.keyCode === 13) {
       this.props.todoStore.addTodo(this.inputText);
+      this.inputText = "";
     }
-    this.inputText = "";
   };
   render() {
     return (

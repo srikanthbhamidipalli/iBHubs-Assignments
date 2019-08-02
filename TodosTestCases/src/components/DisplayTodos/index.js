@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import EachTodo from "./EachTodo";
+import { observer } from "mobx-react";
 
+@observer
 class DisplayTodos extends Component {
   render() {
-    return (
-      <div data-testid="eachTodo">
-        <EachTodo />
+    const todoList = this.props.todoStore.todoList.map(todoItem => (
+      <div>
+        <EachTodo key={Date.now()} todoItem={todoItem} />
       </div>
-    );
+    ));
+    return <div data-testid="eachTodo">{todoList}</div>;
   }
 }
 export default DisplayTodos;

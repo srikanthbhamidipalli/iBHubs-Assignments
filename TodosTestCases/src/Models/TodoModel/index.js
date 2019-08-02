@@ -1,4 +1,7 @@
+import { observable } from "mobx";
+
 class TodoModel {
+  @observable iscompleted = false;
   constructor(desc) {
     this.description = desc;
     this.id = Date.now();
@@ -7,7 +10,7 @@ class TodoModel {
   updateTodo = newDescription => {
     this.description = newDescription;
   };
-  toggleCompleted = () => {
+  toggleCompletedStatus = () => {
     this.isCompleted = !this.isCompleted;
   };
 }
