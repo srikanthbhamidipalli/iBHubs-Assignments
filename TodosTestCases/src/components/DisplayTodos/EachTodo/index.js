@@ -23,7 +23,7 @@ class EachTodo extends Component {
           {this.props.todoItem.description}
         </TodoDescription>
         <span onClick={this.handleDeleteIconClick} data-testid="crossmark">
-          x
+          X
         </span>
       </div>
     );
