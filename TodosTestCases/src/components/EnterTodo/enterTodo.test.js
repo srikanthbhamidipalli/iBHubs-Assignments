@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import EachTodo from "./index";
+import EnterTodo from "./index";
 import TodoStore from "../../Stores/TodoStore";
 
 describe("EnterTodo component testcases", () => {
@@ -8,7 +8,9 @@ describe("EnterTodo component testcases", () => {
   it("should Take a todo description from InputTextBox", () => {
     // todoStore.addTodo = jest.fn();
     jest.spyOn(todoStore, "addTodo");
-    const { getByPlaceholderText } = render(<EachTodo todoStore={todoStore} />);
+    const { getByPlaceholderText } = render(
+      <EnterTodo todoStore={todoStore} />
+    );
     const inputTextBox = getByPlaceholderText("What needs to be done");
     expect(inputTextBox).toBeDefined();
     const todoDesc = "Learn Todos App";

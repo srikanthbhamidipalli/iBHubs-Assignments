@@ -5,6 +5,7 @@ class TodoStore {
 
   @action.bound addTodo(todoItem) {
     this.todoList.push(new TodoModel(todoItem));
+    console.log(this.todoList);
   }
 }
 export default TodoStore;

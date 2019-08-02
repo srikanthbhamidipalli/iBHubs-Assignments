@@ -3,7 +3,7 @@ import { observable } from "mobx";
 import { observer } from "mobx-react";
 
 @observer
-class EachTodo extends Component {
+class EnterTodo extends Component {
   @observable inputText = "";
 
   handleChangeEvent = e => {
@@ -13,6 +13,7 @@ class EachTodo extends Component {
     if (e.keyCode === 13) {
       this.props.todoStore.addTodo(this.inputText);
     }
+    this.inputText = "";
   };
   render() {
     return (
@@ -22,9 +23,10 @@ class EachTodo extends Component {
           placeholder="What needs to be done"
           onChange={this.handleChangeEvent}
           onKeyDown={this.handleKeyDownEvent}
+          value={this.inputText}
         />
       </div>
     );
   }
 }
-export default EachTodo;
+export default EnterTodo;

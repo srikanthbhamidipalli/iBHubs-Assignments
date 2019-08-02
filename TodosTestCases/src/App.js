@@ -1,10 +1,10 @@
 import React from "react";
 import TodoStore from "./Stores/TodoStore";
-import EachTodo from "./components/EachTodo";
+import EnterTodo from "./components/EnterTodo";
 function App() {
   return (
     <div className="App">
-      <EachTodo todoStore={new TodoStore()} />
+      <EnterTodo todoStore={new TodoStore()} />
     </div>
   );
 }
