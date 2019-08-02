@@ -1,9 +1,10 @@
 import EachTodo from ".";
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, cleanup } from "@testing-library/react";
 import TodoModel from "../../../Models/TodoModel";
 import TodoStore from "../../../Stores/TodoStore";
 describe("EachTodo component test cases", () => {
+  afterEach(cleanup);
   it("should update the todo isCompleted status", () => {
     const todoItem = new TodoModel("hello");
     jest.spyOn(todoItem, "toggleCompletedStatus");
@@ -16,7 +17,9 @@ describe("EachTodo component test cases", () => {
     const todoStore = new TodoStore();
     const todoItem = new TodoModel("hello");
     jest.spyOn(todoStore, "removeTodo");
-    const { getByTestId } = render(<EachTodo todoItem={todoItem} />);
+    const { getByTestId } = render(
+      <EachTodo todoItem={todoItem} todoStore={todoStore} />
+    );
     const crossmark = getByTestId("crossmark");
     fireEvent.click(crossmark);
     expect(todoStore.removeTodo).toBeCalled();
