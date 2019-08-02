@@ -6,8 +6,8 @@ import TodoStore from "../../Stores/TodoStore";
 describe("EnterTodo component testcases", () => {
   const todoStore = new TodoStore();
   it("should Take a todo description from InputTextBox", () => {
-    //const addTodo = jest.fn();
-    const spy = jest.spyOn(todoStore, "addTodo");
+    // todoStore.addTodo = jest.fn();
+    jest.spyOn(todoStore, "addTodo");
     const { getByPlaceholderText } = render(<EachTodo todoStore={todoStore} />);
     const inputTextBox = getByPlaceholderText("What needs to be done");
     expect(inputTextBox).toBeDefined();
@@ -19,6 +19,6 @@ describe("EnterTodo component testcases", () => {
       code: 13
     };
     fireEvent.keyDown(inputTextBox, keyDownEvent);
-    expect(spy).toBeCalledWith("Learn Todos App");
+    expect(todoStore.addTodo).toBeCalledWith("Learn Todos App");
   });
 });

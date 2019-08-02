@@ -14,7 +14,7 @@ describe("TodoStore test cases", () => {
       description: "Hello world",
       isCompleted: false
     };
-    eachTodo.addTodo(todoItem);
+    eachTodo.addTodo(todoItem.description);
     expect(eachTodo.todoList.length).toBe(1);
     expect(eachTodo.todoList[0].description).toBe("Hello world");
   });

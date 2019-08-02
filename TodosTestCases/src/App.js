@@ -1,10 +1,10 @@
 import React from "react";
-import { todoStore } from "./Stores/TodoStore";
+import TodoStore from "./Stores/TodoStore";
 import EachTodo from "./components/EachTodo";
 function App() {
   return (
     <div className="App">
-      <EachTodo todoStore={todoStore} />
+      <EachTodo todoStore={new TodoStore()} />
     </div>
   );
 }

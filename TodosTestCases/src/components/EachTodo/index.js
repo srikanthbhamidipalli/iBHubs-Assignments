@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { observable } from "mobx";
 import { observer } from "mobx-react";
-//import TodoStore from "../../Stores/TodoStore";
+
 @observer
 class EachTodo extends Component {
   @observable inputText = "";
@@ -15,7 +15,6 @@ class EachTodo extends Component {
     }
   };
   render() {
-    console.log(this.props);
     return (
       <div>
         <input
