@@ -7,12 +7,14 @@ class FilterBar extends Component {
   render() {
     return (
       <div>
-        <span
-          onClick={this.handleClearCompletedClick}
-          data-testid="clear-completed"
-        >
-          clear completed
-        </span>
+        {
+          <span
+            onClick={this.handleClearCompletedClick}
+            data-testid="clear-completed"
+          >
+            clear completed
+          </span>
+        }
       </div>
     );
   }

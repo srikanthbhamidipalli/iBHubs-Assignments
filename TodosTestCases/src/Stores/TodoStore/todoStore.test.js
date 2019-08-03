@@ -1,25 +1,28 @@
 import TodoStore from "./index";
 
 describe("TodoStore test cases", () => {
-  let eachTodo;
+  let todoStore;
   beforeEach(() => {
-    eachTodo = new TodoStore();
+    todoStore = new TodoStore();
   });
   it("should test for todoslist length for zero", () => {
-    expect(eachTodo.todoList.length).toEqual(0);
+    expect(todoStore.todoList.length).toEqual(0);
   });
   it("should test for addTodo functionality", () => {
     const description = "Hello world";
 
-    eachTodo.addTodo(description);
-    expect(eachTodo.todoList.length).toBe(1);
-    expect(eachTodo.todoList[0].description).toBe(description);
+    todoStore.addTodo(description);
+    expect(todoStore.todoList.length).toBe(1);
+    expect(todoStore.todoList[0].description).toBe(description);
   });
   it("should test for remove todo from todolist", () => {
     const description = "Hello world";
-    const todoId = eachTodo.addTodo(description);
-    jest.spyOn(eachTodo, "removeTodo");
-    eachTodo.removeTodo(todoId);
-    expect(eachTodo.removeTodo).toBeCalledWith(todoId);
+    const todoId = todoStore.addTodo(description);
+    jest.spyOn(todoStore, "removeTodo");
+    todoStore.removeTodo(todoId);
+    expect(todoStore.removeTodo).toBeCalledWith(todoId);
+  });
+  it("should check for the active todos count", () => {
+    expect(todoStore.activeTodosCount).toBeDefined();
   });
 });
