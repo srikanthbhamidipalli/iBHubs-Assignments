@@ -2,6 +2,7 @@ import { observable, action } from "mobx";
 import TodoModel from "../../Models/TodoModel";
 class TodoStore {
   @observable todoList = [];
+  @observable isTodoDoubleClicked = false;
 
   @action.bound addTodo(todoItemDescription) {
     const todoInstance = new TodoModel(todoItemDescription);

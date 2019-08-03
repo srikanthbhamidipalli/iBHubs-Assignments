@@ -7,7 +7,6 @@ import TodoStore from "../../../Stores/TodoStore";
 
 @observer
 class EachTodo extends Component {
-  @observable isTodoDoubleClicked = false;
   handleCheckBoxChange = () => {
     this.props.todoItem.toggleCompletedStatus();
   };
@@ -15,15 +14,15 @@ class EachTodo extends Component {
     this.props.todoStore.removeTodo(this.props.todoItem.id);
   };
   handleDoubleClickEvent = () => {
-    this.isTodoDoubleClicked = true;
+    this.props.todoStore.isTodoDoubleClicked = true;
   };
   render() {
     return (
       <div>
-        {this.isTodoDoubleClicked ? (
+        {this.props.todoStore.isTodoDoubleClicked ? (
           <EnterTodo
             todoStore={this.props.todoStore}
-            inputText={this.todoItem.description}
+            inputText={this.props.todoItem.description}
             onPressEnterKey={this.props.todoItem.updateTodo}
           />
         ) : (
@@ -37,6 +36,7 @@ class EachTodo extends Component {
             <TodoDescription
               isCompleted={this.props.todoItem.isCompleted}
               onDoubleClick={this.handleDoubleClickEvent}
+              data-testid="todo-desc"
             >
               {this.props.todoItem.description}
             </TodoDescription>

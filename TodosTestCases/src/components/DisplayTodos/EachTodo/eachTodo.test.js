@@ -10,8 +10,11 @@ describe("EachTodo component test cases", () => {
     todoItem = new TodoModel("hello");
   });
   it("should update the todo isCompleted status", () => {
+    const todoStore = new TodoStore();
     jest.spyOn(todoItem, "toggleCompletedStatus");
-    const { getByTestId } = render(<EachTodo todoItem={todoItem} />);
+    const { getByTestId } = render(
+      <EachTodo todoItem={todoItem} todoStore={todoStore} />
+    );
     const inputBox = getByTestId("inputBox");
     fireEvent.click(inputBox);
     expect(todoItem.toggleCompletedStatus).toBeCalled();
@@ -28,10 +31,24 @@ describe("EachTodo component test cases", () => {
   });
   it("should check if the todo description is updating or not", () => {
     const todoStore = new TodoStore();
-    const { getByTestId } = render(
-      <EachTodo todoItem={todoItem} todoStore={todoStore} />
+    todoStore.addTodo("hello world");
+    jest.spyOn(todoStore.todoList[0], "updateTodo");
+    const { getByTestId, getByPlaceholderText } = render(
+      <EachTodo todoItem={todoStore.todoList[0]} todoStore={todoStore} />
     );
-    const enterTodoComponent = getByTestId("enter-todo-component");
-    expect(enterTodoComponent).toBeDefined();
+    const todoDescription = getByTestId("todo-desc");
+    fireEvent.doubleClick(todoDescription);
+    const inputTextBox = getByPlaceholderText("What needs to be done");
+    expect(inputTextBox).toBeDefined();
+    const todoDesc = "Learn Todos App";
+    const changeEvent = { target: { value: todoDesc } };
+    fireEvent.change(inputTextBox, changeEvent);
+    const keyDownEvent = {
+      key: "Enter",
+      keyCode: 13,
+      code: 13
+    };
+    fireEvent.keyDown(inputTextBox, keyDownEvent);
+    expect(todoStore.todoList[0].updateTodo).toBeCalled();
   });
 });

@@ -13,6 +13,7 @@ class EnterTodo extends Component {
     if (e.keyCode === 13) {
       this.props.onPressEnterKey(this.inputText);
       this.inputText = "";
+      this.props.todoStore.isTodoDoubleClicked = false;
     }
   };
   render() {
