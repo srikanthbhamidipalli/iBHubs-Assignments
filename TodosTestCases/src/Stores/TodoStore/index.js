@@ -13,5 +13,11 @@ class TodoStore {
   @action.bound removeTodo(id) {
     this.todoList = this.todoList.filter(todoItem => todoItem.id !== id);
   }
+
+  @action.bound clearCompletedTodos() {
+    this.todoList = this.todoList.filter(
+      todoItem => todoItem.isCompleted !== true
+    );
+  }
 }
 export default TodoStore;
