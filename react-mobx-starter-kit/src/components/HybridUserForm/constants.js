@@ -4,9 +4,9 @@ export const userLoginCredentials = {
 };
 
 export const apiUrls = {
-  products: "https://user-shopping-cart.getsandbox.com/products/v1/",
-  userLogin: "https://user-shopping-cart.getsandbox.com/login/v1/",
-  userSignUp: "https://user-shopping-cart.getsandbox.com/sign_up/v1/"
+  products: "https://products-cart.getsandbox.com/products/v1/",
+  userLogin: "https://products-cart.getsandbox.com/login/v1/",
+  userSignUp: "https://products-cart.getsandbox.com/sign_up/v1/"
 };
 
 export const signUpSuccessMessage = "user created successfully, please Login!";

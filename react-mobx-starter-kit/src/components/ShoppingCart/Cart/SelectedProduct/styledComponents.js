@@ -17,7 +17,7 @@ export const ProductInfoContainer = styled.div`
   padding-left: 15px;
 `;
 
-export const sizeAndQuantityInfo = styled.span`
+export const SizeAndQuantityInfo = styled.span`
   color: grey;
 `;
 

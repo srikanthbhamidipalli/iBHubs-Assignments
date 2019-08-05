@@ -5,7 +5,7 @@ import { observable } from "mobx";
 import {
   EachCartItem,
   ProductInfoContainer,
-  sizeAndQuantityInfo,
+  SizeAndQuantityInfo,
   PriceInsideCart,
   DeleteIcon,
   ProductPicInsideCart
@@ -24,14 +24,14 @@ class SelectedProduct extends Component {
         <ProductPicInsideCart src={this.props.image} alt="productPic" />
         <ProductInfoContainer>
           <span>{this.props.title}</span>
-          <sizeAndQuantityInfo>
+          <SizeAndQuantityInfo>
             <span>{this.props.size}</span>
             {" | "}
             <span>{this.props.style}</span>
-          </sizeAndQuantityInfo>
-          <sizeAndQuantityInfo>
+          </SizeAndQuantityInfo>
+          <SizeAndQuantityInfo>
             Quantity: {this.props.quantity}
-          </sizeAndQuantityInfo>
+          </SizeAndQuantityInfo>
         </ProductInfoContainer>
         <PriceInsideCart>${this.props.price}</PriceInsideCart>
         <DeleteIcon

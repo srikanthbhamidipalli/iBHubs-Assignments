@@ -11,7 +11,13 @@ import {
 class AppStore {
   @observable orderBy = orderByOptions.select;
   @observable productList = [];
-  @observable cartItemList = [];
+  @observable cartItemList = JSON.parse(localStorage.getItem("cartItems"))
+    ? JSON.parse(localStorage.getItem("cartItems")).map(
+        eachObj =>
+          new CartItemModel(eachObj.productId, eachObj.size, eachObj.quantity)
+      )
+    : [];
+
   @observable selectedSizes = [];
   @observable failureMessage = "";
   @observable initialProductsFetchingStatus = "";
@@ -74,6 +80,7 @@ class AppStore {
         new CartItemModel(productId, selectedCartItemSize)
       );
     }
+    localStorage.setItem("cartItems", JSON.stringify(this.cartItemList));
   }
 
   // @action removeProductFromCart = productId => {
@@ -89,6 +96,7 @@ class AppStore {
       cartItem => cartItem.productId === productId && cartItem.size === size
     );
     this.cartItemList.splice(index, 1);
+    localStorage.setItem("cartItems", JSON.stringify(this.cartItemList));
   };
 
   @action.bound async userLogin(body) {
